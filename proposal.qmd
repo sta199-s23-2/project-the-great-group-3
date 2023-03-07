@@ -18,17 +18,31 @@ library(tidyverse)
 
 -   Identify the source of the data.
 
+The source of the data is FiveThirtyEight, a statistics-centered news source.
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+Researchers at FiveThirtyEight have been quantifying the soccer teams' past performances, and then collecting data on the results of each matches. The data originally started being collected in 2019.
+
 -   Write a brief description of the observations.
+
+The observations are individual matches from all club soccer matches since 2022, with the exception of the Chinese Super League's 2019 season. The columns describe FiveThirtyEight's predictions for each match and then the result of the match. FiveThirtyEight uses their SPI model as predictions, then the data set included expected goals and goals scored for each team.
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
+    1.  How accurately does FiveThirtyEight's projected goals scored predict actual goals scored depending on league?
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
+My research topic relates how well FiveThirtyEight can predict the results of each match in each league. In short, I'm looking for which leagues are the most and least predictable. If FiveThirtyEight's predictions are consistently accurate for a league, that league could be considered relatively predictable. To quantify the results, I'm planning on using projected goals scored with actual goals scored. My hypotheses is that higher quality leagues, such as the English Premier League, La Liga, and the UEFA Champions League are the most predictable as those leagues have the largest discrepancies of talent based on club.
+
 -   Identify the types of variables in your research question. Categorical? Quantitative?
+
+Categorical variables include: League, Team1, and Team2
+
+Quantitative variables include: Date, League ID, spi1, spi2, prob1, prob2, probtie, importance1, importance2, score1, score2, xg1, xg2, nsxg1, nsxg2, adj_score1, adj_score2
 
 ## Literature
 
