@@ -4,12 +4,12 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Team member 1: One sentence description of Team member 1 (e.g., year, major, etc.).\nTeam member 2: One sentence description of Team member 2 (e.g., year, major, etc.).\nTeam member 3: One sentence description of Team member 3 (e.g., year, major, etc.).\nTeam member 4: One sentence description of Team member 4 (e.g., year, major, etc.).\n…"
+    "text": "Ishrit Gupta: Ishrit is a freshman majoring in Economics and Statistics.\nSalma Schwartzman: Salma is a freshman majoring in Political Science with a double language minor.\nGarrett Spooner: Garrett is a freshman majoring in, possibly, Statistics, Economics, or both.\nRees Payne: Rees is a junior majoring in Computer Science."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "TEAM NAME",
+    "title": "The Great Group 3",
     "section": "",
     "text": "Add project abstract here."
   },
@@ -18,7 +18,7 @@
     "href": "proposal.html",
     "title": "Project title",
     "section": "",
-    "text": "library(tidyverse)\n\nWarning: package 'ggplot2' was built under R version 4.2.2\n\n\nWarning: package 'tidyr' was built under R version 4.2.2\n\n\nWarning: package 'readr' was built under R version 4.2.2\n\n\nWarning: package 'purrr' was built under R version 4.2.2"
+    "text": "library(tidyverse)"
   },
   {
     "objectID": "proposal.html#introduction-and-data",
