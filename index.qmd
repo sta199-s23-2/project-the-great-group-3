@@ -1,5 +1,5 @@
 ---
-title: "TEAM NAME"
+title: "The Great Group 3"
 subtitle: "STA 199 Project"
 format: html
 editor: visual
