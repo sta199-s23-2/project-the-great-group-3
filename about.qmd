@@ -4,10 +4,9 @@ format: html
 editor: visual
 ---
 
-This project was developed by **\[team name\]** For [STA 199: Introduction to Data Science](https://sta199-s23-2.github.io/) at Duke University. The team is comprised of the following team members.
+This project was developed by **The Great Group 3** For [STA 199: Introduction to Data Science](https://sta199-s23-2.github.io/) at Duke University. The team is comprised of the following team members.
 
--   Team member 1: One sentence description of Team member 1 (e.g., year, major, etc.).
--   Team member 2: One sentence description of Team member 2 (e.g., year, major, etc.).
--   Team member 3: One sentence description of Team member 3 (e.g., year, major, etc.).
--   Team member 4: One sentence description of Team member 4 (e.g., year, major, etc.).
--   ...
+-   Ishrit Gupta: Ishrit is a freshman majoring in Economics and Statistics.
+-   Salma Schwartzman: Salma is a freshman majoring in Political Science with a double language minor.
+-   Garrett Spooner: Garrett is a freshman majoring in, possibly, Statistics, Economics, or both.
+-   Rees Payne: Rees is a junior majoring in Computer Science.
