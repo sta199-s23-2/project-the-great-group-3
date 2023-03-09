@@ -57,7 +57,8 @@ Quantitative variables include: Date, League ID, spi1, spi2, prob1, prob2, probt
 ```{r}
 #| label: load-data-1
 
-# add code here
+spi_matches_latest = read.csv("data/spi_matches_latest.csv")
+glimpse(spi_matches_latest)
 ```
 
 # Data 2
