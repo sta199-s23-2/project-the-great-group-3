@@ -67,17 +67,29 @@ glimpse(spi_matches_latest)
 
 -   Identify the source of the data.
 
+    -   The source is the US department of education's website on Equity in Athletics
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+    -   Each University was asked to submit the data to the US department of education via a form. The DOE then compiles this information.
+
 -   Write a brief description of the observations.
+
+    -   The data gives basic information such as the name of the school, location, NCAA division, funding allocations, as well as the expenses by sports.
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
+    -   How accurately can student aid Male to Female ratio predict funding allocations across all sports recruitment budgets based on state.
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
+    -   The data provides us with the ratio of student aid (Male:Female) as well as the funding provided for recruitment of these individuals. We will be looking to see how accurately we can use this ratio to predict the recruitment budgets. We will separate this by state in order to account for regional biases that may interfere with these predictions. We predict that the ratio will, to a high degree, predict the recruitment funding as, schools willing to put money into students' financial aid will be willing to put money into their recruitment.
+
 -   Identify the types of variables in your research question. Categorical? Quantitative?
+
+    -   Both the ratios and budgets are quantative, States are a categorical variable.
 
 ## Literature
 
@@ -92,7 +104,8 @@ glimpse(spi_matches_latest)
 ```{r}
 #| label: load-data-2
 
-# add code here
+EADA_2021 = read.csv("data/Copy of EADA_2021.csv")
+glimpse(EADA_2021)
 ```
 
 # Data 3
