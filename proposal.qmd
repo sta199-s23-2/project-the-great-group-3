@@ -128,17 +128,29 @@ glimpse(EADA_2021)
 
 -   Identify the source of the data.
 
+    The data is sourced from the Collective Learning group at the MIT Media Lab.
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+    The data was collected in 2013 from biographies of famous people on Wikipedia, written in more than 25 languages.
+
 -   Write a brief description of the observations.
+
+    Each observation represents a webpage on Wikipedia that contains the biography of a specific famous person. The variables recorded for each observation include the location of that person's birth, as well as their gender and occupation. Data about the popularity of each page is also included, such as the number of languages the page has been translated into, the number of times the page has been viewed, and a measure called the Historical Popularity Index (HPI) that is derived from the number of different-language pages, the time since the person's birth, and page views, to reflect a person's popularity over time.
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
+    Does the particular industry a person worked in have an influence on their overall popularity?
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
+    The research topic will focus on the relationship industry has with both HPI and the number of languages the page has been translated into. We will look at the values for HPI and number of languages for each industry in the dataset to assess popularity across multiple countries. We predict that more publicly influential industries such as Government and Film will be correlated with higher HPI and a greater number of translations.
+
 -   Identify the types of variables in your research question. Categorical? Quantitative?
+
+    Industry is a categorical variable, while HPI and number of languages are quantitative variables.
 
 ## Literature
 
@@ -153,5 +165,6 @@ glimpse(EADA_2021)
 ```{r}
 #| label: load-data-3
 
-# add code here
+pantheon = read.csv("data/pantheon.csv")
+glimpse(pantheon)
 ```
