@@ -119,7 +119,11 @@ glimpse(spi_matches_latest)
 #| label: load-data-2
 
 EADA_2021 = read.csv("data/Copy of EADA_2021.csv")
-glimpse(EADA_2021)
+
+
+eada <- EADA_2021[,-27:-4274]
+glimpse(eada)
+  
 ```
 
 # Data 3
