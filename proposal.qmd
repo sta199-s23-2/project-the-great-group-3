@@ -87,7 +87,7 @@ glimpse(spi_matches_latest)
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
-    -   To what extent can college athletics' recruitment funds be predicted by the level of athletic scholarships provided to student athletes?
+    -   To what extent can college athletics' recruitment funds be predicted by the level of athletic scholarships provided to student athletes, specifically by gender?
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
