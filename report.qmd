@@ -7,10 +7,9 @@ execute:
   echo: true
 ---
 
-<<<<<<< HEAD
+**Introduction**
 Duke University is intrinsically connected to its sports program. Most famously known for their Men's Division 1 Basketball and Football teams, as of 2020, Duke makes an estimated \$33,382,946 and \$39,669,829 in revenue, respectively (https://blackinblue.trinity.duke.edu/haves-and-have-nots-inequities-amongst-duke-universitys-sports-teams). Furthermore, Duke spends approximately \$1,329,949 per Men's basketball player and \$217,047 per football player (Ibid.). Duke's 2020 Equity in Athletics Disclosure Act (EADA) revealed that Duke spent a total of \$57,114,331 on men's sports teams and a total of \$25,472,405 on women's sports teams (Ibid.) This figure includes recruitment cost, amongst other things. This begs the question: is this the status quo in collegiate athletics?
-=======
-*Introduction*
+
 
 **Context**
 
@@ -23,4 +22,3 @@ Our topic will specifically observe and investigate how much, on average, univer
 **Ethical Issues**
 
 There are very few ethical issues anticipated with this investigation. However, it is important to note that source biases are an likely phenomenon. We must be careful with many self-reported information from university sites, and assuring that the data published can be verified.
->>>>>>> c2f89739d6104025a152d35e05c3c1035d33e093
