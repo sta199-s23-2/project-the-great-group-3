@@ -21,7 +21,6 @@ eada <- EADA_2021[,-27:-4274]
 glimpse(eada)
 ```
 
-
 **Introduction**
 
 Duke University is intrinsically connected to its sports program. Most famously known for their Men's Division 1 Basketball and Football teams, as of 2020, Duke makes an estimated \$33,382,946 and \$39,669,829 in revenue, respectively (https://blackinblue.trinity.duke.edu/haves-and-have-nots-inequities-amongst-duke-universitys-sports-teams). Furthermore, Duke spends approximately \$1,329,949 per Men's basketball player and \$217,047 per football player (Ibid.). Duke's 2020 Equity in Athletics Disclosure Act (EADA) revealed that Duke spent a total of \$57,114,331 on men's sports teams and a total of \$25,472,405 on women's sports teams (Ibid.) This figure includes recruitment cost, amongst other things. This begs the question: is this the status quo in collegiate athletics?
@@ -49,6 +48,18 @@ Research question: To what extent can college athletics' recruitment funds be pr
 -   Division
 
 ```{r}
+eada_NCAA <- eada |>
+  filter(classification_name == c("NCAA Division I-FCS", 
+                                  "NCAA Division I-FBS", 
+                                  "NCAA Division I without football", 
+                                  "NCAA Division II with football", 
+                                  "NCAA Division II without football", 
+                                  "NCAA Division III with football", 
+                                  "NCAA Division III without football",
+                                  ""))
+```
+
+```{r}
 eada_private <- eada |>
   filter(sector_name == c("Private nonprofit, 4-year or above", 
          "Private for-profit, 4-year or above"))
@@ -57,4 +68,18 @@ eada_private <- eada |>
 ```{r}
 eada_public <- eada |>
   filter(sector_name == c("Public, 4-year or above", "Public, 2-year"))
+```
+
+```{r}
+eada_nofootball <- eada |>
+  filter(classification_name == c("NCAA Division I without football", 
+                                  "NCAA Division II without football", 
+                                  "NCAA Division III without football"))
+```
+
+```{r}
+eada_football <- eada |>
+  filter(classification_name != c("NCAA Division I without football", 
+                                  "NCAA Division II without football", 
+                                  "NCAA Division III without football"))
 ```
