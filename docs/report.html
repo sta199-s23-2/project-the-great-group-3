@@ -249,6 +249,7 @@ $ RECRUITEXP_TOTAL    &lt;int&gt; 94460, 55353, 28707, 78429, 734399, 0, 18474, 
 <li><p>Football vs.&nbsp;no football</p></li>
 <li><p>Division</p></li>
 </ul>
+<p>We will answer our research question by creating regression models comparing athletic scholarships to recruitment funds, and then calculate the AIC for each model to determine the effectiveness of each predictor. We chose to use regression models because our research question looks at the extent to which one variable can predict another. We chose to use AIC calculations because we are comparing the effectiveness of prediction based on which variables are included in the model, and AIC is an effective calculation for comparing models that is not simply dependent on the number of predictors.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>eada_NCAA <span class="ot">&lt;-</span> eada <span class="sc">|&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(classification_name <span class="sc">==</span> <span class="fu">c</span>(<span class="st">"NCAA Division I-FCS"</span>, </span>

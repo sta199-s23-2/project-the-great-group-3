@@ -50,6 +50,8 @@ Research question: To what extent can college athletics' recruitment funds be pr
 
 -   Division
 
+We will answer our research question by creating regression models comparing athletic scholarships to recruitment funds, and then calculate the AIC for each model to determine the effectiveness of each predictor.  We chose to use regression models because our research question looks at the extent to which one variable can predict another.  We chose to use AIC calculations because we are comparing the effectiveness of prediction based on which variables are included in the model, and AIC is an effective calculation for comparing models that is not simply dependent on the number of predictors.
+
 ```{r}
 #| label: filter-ncaa
 
