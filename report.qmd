@@ -121,4 +121,3 @@ eada_divisionIII <- eada |>
   filter(classification_name == c("NCAA Division III with football",
                                   "NCAA Division III without football"))
 ```
-
