@@ -8,6 +8,9 @@ execute:
 ---
 
 ```{r}
+#| label: load-pkgs
+
+
 library(tidyverse)
 ```
 
@@ -48,6 +51,8 @@ Research question: To what extent can college athletics' recruitment funds be pr
 -   Division
 
 ```{r}
+#| label: filter-ncaa
+
 eada_NCAA <- eada |>
   filter(classification_name == c("NCAA Division I-FCS", 
                                   "NCAA Division I-FBS", 
@@ -60,17 +65,23 @@ eada_NCAA <- eada |>
 ```
 
 ```{r}
+#| label: filter-private
+
 eada_private <- eada |>
   filter(sector_name == c("Private nonprofit, 4-year or above", 
          "Private for-profit, 4-year or above"))
 ```
 
 ```{r}
+#| label: filter-public
+
 eada_public <- eada |>
   filter(sector_name == c("Public, 4-year or above", "Public, 2-year"))
 ```
 
 ```{r}
+#| label: filter-nofootball
+
 eada_nofootball <- eada |>
   filter(classification_name == c("NCAA Division I without football", 
                                   "NCAA Division II without football", 
@@ -78,8 +89,36 @@ eada_nofootball <- eada |>
 ```
 
 ```{r}
+#| label: filter-football
+
 eada_football <- eada |>
   filter(classification_name != c("NCAA Division I without football", 
                                   "NCAA Division II without football", 
                                   "NCAA Division III without football"))
 ```
+
+```{r}
+#| label: filter-divisionI
+
+eada_divisionI <- eada |>
+  filter(classification_name == c("NCAA Division I-FCS",
+                                  "NCAA Division I-FBS",
+                                  "NCAA Division I without football"))
+```
+
+```{r}
+#| label: filter-divisionII
+
+eada_divisionII <- eada |>
+  filter(classification_name == c("NCAA Division II with football",
+                                  "NCAA Division II without football"))
+```
+
+```{r}
+#| label: filter-divisionIII
+
+eada_divisionIII <- eada |>
+  filter(classification_name == c("NCAA Division III with football",
+                                  "NCAA Division III without football"))
+```
+
