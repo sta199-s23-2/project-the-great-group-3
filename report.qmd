@@ -21,6 +21,15 @@ EADA_2021 = read.csv("data/Copy of EADA_2021.csv")
 
 
 eada <- EADA_2021[,-27:-4274]
+eada <- eada |> 
+  mutate(ratio_mw_sa = STUAID_MEN_RATIO/STUAID_WOMEN_RATIO)
+eada <- eada |>
+  mutate(ratio_mw_ep = RECRUITEXP_MEN/RECRUITEXP_WOMEN)
+eada <- eada |>
+  filter(ratio_mw_sa != "NaN",
+         ratio_mw_ep != "NaN",
+         ratio_mw_sa != "Inf",
+         ratio_mw_ep != "Inf")
 glimpse(eada)
 ```
 
@@ -50,7 +59,7 @@ Research question: To what extent can college athletics' recruitment funds be pr
 
 -   Division
 
-We will answer our research question by creating regression models comparing athletic scholarships to recruitment funds, and then calculate the AIC for each model to determine the effectiveness of each predictor.  We chose to use regression models because our research question looks at the extent to which one variable can predict another.  We chose to use AIC calculations because we are comparing the effectiveness of prediction based on which variables are included in the model, and AIC is an effective calculation for comparing models that is not simply dependent on the number of predictors.
+We will answer our research question by creating regression models comparing athletic scholarships to recruitment funds, and then calculate the AIC for each model to determine the effectiveness of each predictor. We chose to use regression models because our research question looks at the extent to which one variable can predict another. We chose to use AIC calculations because we are comparing the effectiveness of prediction based on which variables are included in the model, and AIC is an effective calculation for comparing models that is not simply dependent on the number of predictors.
 
 ```{r}
 #| label: filter-ncaa
@@ -124,3 +133,75 @@ eada_divisionIII <- eada |>
                                   "NCAA Division III without football"))
 ```
 
+```{r}
+#label: main-visualization
+
+eada |>
+  ggplot(
+    aes(x = ratio_mw_sa,
+        y = ratio_mw_ep)
+  ) + geom_point()
+```
+
+```{r}
+#label: viz-priv
+eada_private |>
+  ggplot(
+    aes(x = ratio_mw_sa,
+        y = ratio_mw_ep)
+  ) + geom_point()
+```
+
+```{r}
+#label: viz-public
+eada_public |>
+  ggplot(
+    aes(x = ratio_mw_sa,
+        y = ratio_mw_ep)
+  ) + geom_point()
+```
+
+```{r}
+#label: viz-football
+eada_football |>
+  ggplot(
+    aes(x = ratio_mw_sa,
+        y = ratio_mw_ep)
+  ) + geom_point()
+```
+
+```{r}
+#label: viz-no-football
+eada_nofootball |>
+  ggplot(
+    aes(x = ratio_mw_sa,
+        y = ratio_mw_ep)
+  ) + geom_point()
+```
+
+```{r}
+#label: viz-d1
+eada_divisionI |>
+  ggplot(
+    aes(x = ratio_mw_sa,
+        y = ratio_mw_ep)
+  ) + geom_point()
+```
+
+```{r}
+#label: viz-d2
+eada_divisionII |>
+  ggplot(
+    aes(x = ratio_mw_sa,
+        y = ratio_mw_ep)
+  ) + geom_point()
+```
+
+```{r}
+#label: viz-d3
+eada_divisionIII |>
+  ggplot(
+    aes(x = ratio_mw_sa,
+        y = ratio_mw_ep)
+  ) + geom_point()
+```
