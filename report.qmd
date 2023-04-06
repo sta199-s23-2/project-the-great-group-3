@@ -183,6 +183,20 @@ eada_divisionI <- eada |>
   filter(classification_name == "NCAA Division I-FCS" |
          classification_name == "NCAA Division I-FBS" |
          classification_name == "NCAA Division I without football")
+
+
+Q1_divisionI_ep <- quantile(eada_divisionI$ratio_mw_ep, .25)
+Q1_divisionI_sa <- quantile(eada_divisionI$ratio_mw_sa, .25)
+
+Q3_divisionI_ep <- quantile(eada_divisionI$ratio_mw_ep, .75)
+Q3_divisionI_sa <- quantile(eada_divisionI$ratio_mw_sa, .75)
+
+IQR_divisionI_ep <- IQR(eada_divisionI$ratio_mw_ep)
+IQR_divisionI_sa <- IQR(eada_divisionI$ratio_mw_sa)
+
+eada_divisionI <- subset(eada_divisionI, eada_divisionI$ratio_mw_ep> (Q1_divisionI_ep - 1.5*IQR_divisionI_ep) & eada_divisionI$ratio_mw_ep< (Q3_divisionI_ep + 1.5*IQR_divisionI_ep))
+
+eada_divisionI <- subset(eada_divisionI, eada_divisionI$ratio_mw_sa> (Q1_divisionI_sa - 1.5*IQR_divisionI_sa) & eada_divisionI$ratio_mw_sa< (Q3_divisionI_sa + 1.5*IQR_divisionI_sa))
 ```
 
 ```{r}
@@ -191,6 +205,19 @@ eada_divisionI <- eada |>
 eada_divisionII <- eada |>
   filter(classification_name == "NCAA Division II with football" |
         classification_name == "NCAA Division II without football")
+
+Q1_divisionII_ep <- quantile(eada_divisionII$ratio_mw_ep, .25)
+Q1_divisionII_sa <- quantile(eada_divisionII$ratio_mw_sa, .25)
+
+Q3_divisionII_ep <- quantile(eada_divisionII$ratio_mw_ep, .75)
+Q3_divisionII_sa <- quantile(eada_divisionII$ratio_mw_sa, .75)
+
+IQR_divisionII_ep <- IQR(eada_divisionII$ratio_mw_ep)
+IQR_divisionII_sa <- IQR(eada_divisionII$ratio_mw_sa)
+
+eada_divisionII <- subset(eada_divisionII, eada_divisionII$ratio_mw_ep> (Q1_divisionII_ep - 1.5*IQR_divisionII_ep) & eada_divisionII$ratio_mw_ep< (Q3_divisionII_ep + 1.5*IQR_divisionII_ep))
+
+eada_divisionII <- subset(eada_divisionII, eada_divisionII$ratio_mw_sa> (Q1_divisionII_sa - 1.5*IQR_divisionII_sa) & eada_divisionII$ratio_mw_sa< (Q3_divisionII_sa + 1.5*IQR_divisionII_sa))
 ```
 
 ```{r}
@@ -199,6 +226,19 @@ eada_divisionII <- eada |>
 eada_divisionIII <- eada |>
   filter(classification_name == "NCAA Division III with football" |
          classification_name == "NCAA Division III without football")
+
+Q1_divisionIII_ep <- quantile(eada_divisionIII$ratio_mw_ep, .25)
+Q1_divisionIII_sa <- quantile(eada_divisionIII$ratio_mw_sa, .25)
+
+Q3_divisionIII_ep <- quantile(eada_divisionIII$ratio_mw_ep, .75)
+Q3_divisionIII_sa <- quantile(eada_divisionIII$ratio_mw_sa, .75)
+
+IQR_divisionIII_ep <- IQR(eada_divisionIII$ratio_mw_ep)
+IQR_divisionIII_sa <- IQR(eada_divisionIII$ratio_mw_sa)
+
+eada_divisionIII <- subset(eada_divisionIII, eada_divisionIII$ratio_mw_ep> (Q1_divisionIII_ep - 1.5*IQR_divisionIII_ep) & eada_divisionIII$ratio_mw_ep< (Q3_divisionIII_ep + 1.5*IQR_divisionIII_ep))
+
+eada_divisionIII <- subset(eada_divisionIII, eada_divisionIII$ratio_mw_sa> (Q1_divisionIII_sa - 1.5*IQR_divisionIII_sa) & eada_divisionIII$ratio_mw_sa< (Q3_divisionIII_sa + 1.5*IQR_divisionIII_sa))
 ```
 
 ```{r}
@@ -272,4 +312,5 @@ eada_divisionIII |>
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)
   ) + geom_point()
+
 ```
