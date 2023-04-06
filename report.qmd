@@ -72,6 +72,20 @@ eada_NCAA <- eada |>
         classification_name == "NCAA Division II without football" | 
         classification_name == "NCAA Division III with football" |
         classification_name == "NCAA Division III without football")
+
+
+Q1_NCAA_ep <- quantile(eada_NCAA$ratio_mw_ep, .25)
+Q1_NCAA_sa <- quantile(eada_NCAA$ratio_mw_sa, .25)
+
+Q3_NCAA_ep <- quantile(eada_NCAA$ratio_mw_ep, .75)
+Q3_NCAA_sa <- quantile(eada_NCAA$ratio_mw_sa, .75)
+
+IQR_NCAA_ep <- IQR(eada_NCAA$ratio_mw_ep)
+IQR_NCAA_sa <- IQR(eada_NCAA$ratio_mw_sa)
+
+eada_NCAA <- subset(eada_NCAA, eada_NCAA$ratio_mw_ep> (Q1_NCAA_ep - 1.5*IQR_NCAA_ep) & eada_NCAA$ratio_mw_ep< (Q3_NCAA_ep + 1.5*IQR_NCAA_ep))
+
+eada_NCAA <- subset(eada_NCAA, eada_NCAA$ratio_mw_sa> (Q1_NCAA_sa - 1.5*IQR_NCAA_sa) & eada_NCAA$ratio_mw_sa< (Q3_NCAA_sa + 1.5*IQR_NCAA_sa))
 ```
 
 ```{r}
@@ -80,6 +94,21 @@ eada_NCAA <- eada |>
 eada_private <- eada |>
   filter(sector_name == "Private nonprofit, 4-year or above" | 
          sector_name == "Private for-profit, 4-year or above")
+
+
+
+Q1_priv_ep <- quantile(eada_private$ratio_mw_ep, .25)
+Q1_priv_sa <- quantile(eada_private$ratio_mw_sa, .25)
+
+Q3_priv_ep <- quantile(eada_private$ratio_mw_ep, .75)
+Q3_priv_sa <- quantile(eada_private$ratio_mw_sa, .75)
+
+IQR_priv_ep <- IQR(eada_private$ratio_mw_ep)
+IQR_priv_sa <- IQR(eada_private$ratio_mw_sa)
+
+eada_private <- subset(eada_private, eada_private$ratio_mw_ep> (Q1_priv_ep - 1.5*IQR_priv_ep) & eada_private$ratio_mw_ep< (Q3_priv_ep + 1.5*IQR_priv_ep))
+
+eada_private <- subset(eada_private, eada_private$ratio_mw_sa> (Q1_priv_sa - 1.5*IQR_priv_sa) & eada_private$ratio_mw_sa< (Q3_priv_sa + 1.5*IQR_priv_sa))
 ```
 
 ```{r}
