@@ -117,6 +117,19 @@ eada_private <- subset(eada_private, eada_private$ratio_mw_sa> (Q1_priv_sa - 1.5
 eada_public <- eada |>
   filter(sector_name == "Public, 4-year or above" | 
          sector_name == "Public, 2-year")
+
+Q1_public_ep <- quantile(eada_public$ratio_mw_ep, .25)
+Q1_public_sa <- quantile(eada_public$ratio_mw_sa, .25)
+
+Q3_public_ep <- quantile(eada_public$ratio_mw_ep, .75)
+Q3_public_sa <- quantile(eada_public$ratio_mw_sa, .75)
+
+IQR_public_ep <- IQR(eada_public$ratio_mw_ep)
+IQR_public_sa <- IQR(eada_public$ratio_mw_sa)
+
+eada_public <- subset(eada_public, eada_public$ratio_mw_ep> (Q1_public_ep - 1.5*IQR_public_ep) & eada_public$ratio_mw_ep< (Q3_public_ep + 1.5*IQR_public_ep))
+
+eada_public <- subset(eada_public, eada_public$ratio_mw_sa> (Q1_public_sa - 1.5*IQR_public_sa) & eada_public$ratio_mw_sa< (Q3_public_sa + 1.5*IQR_public_sa))
 ```
 
 ```{r}
