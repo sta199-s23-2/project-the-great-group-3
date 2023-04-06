@@ -139,6 +139,19 @@ eada_nofootball <- eada |>
   filter(classification_name == "NCAA Division I without football" |
         classification_name == "NCAA Division II without football" | 
         classification_name == "NCAA Division III without football")
+
+Q1_nofootball_ep <- quantile(eada_nofootball$ratio_mw_ep, .25)
+Q1_nofootball_sa <- quantile(eada_nofootball$ratio_mw_sa, .25)
+
+Q3_nofootball_ep <- quantile(eada_nofootball$ratio_mw_ep, .75)
+Q3_nofootball_sa <- quantile(eada_nofootball$ratio_mw_sa, .75)
+
+IQR_nofootball_ep <- IQR(eada_nofootball$ratio_mw_ep)
+IQR_nofootball_sa <- IQR(eada_nofootball$ratio_mw_sa)
+
+eada_nofootball <- subset(eada_nofootball, eada_nofootball$ratio_mw_ep> (Q1_nofootball_ep - 1.5*IQR_nofootball_ep) & eada_nofootball$ratio_mw_ep< (Q3_nofootball_ep + 1.5*IQR_nofootball_ep))
+
+eada_nofootball <- subset(eada_nofootball, eada_nofootball$ratio_mw_sa> (Q1_nofootball_sa - 1.5*IQR_nofootball_sa) & eada_nofootball$ratio_mw_sa< (Q3_nofootball_sa + 1.5*IQR_nofootball_sa))
 ```
 
 ```{r}
@@ -148,6 +161,19 @@ eada_football <- eada |>
   filter(classification_name != "NCAA Division I without football" | 
          classification_name != "NCAA Division II without football" | 
          classification_name != "NCAA Division III without football")
+
+Q1_football_ep <- quantile(eada_football$ratio_mw_ep, .25)
+Q1_football_sa <- quantile(eada_football$ratio_mw_sa, .25)
+
+Q3_football_ep <- quantile(eada_football$ratio_mw_ep, .75)
+Q3_football_sa <- quantile(eada_football$ratio_mw_sa, .75)
+
+IQR_football_ep <- IQR(eada_football$ratio_mw_ep)
+IQR_football_sa <- IQR(eada_football$ratio_mw_sa)
+
+eada_football <- subset(eada_football, eada_football$ratio_mw_ep> (Q1_football_ep - 1.5*IQR_football_ep) & eada_football$ratio_mw_ep< (Q3_football_ep + 1.5*IQR_football_ep))
+
+eada_football <- subset(eada_football, eada_football$ratio_mw_sa> (Q1_football_sa - 1.5*IQR_football_sa) & eada_football$ratio_mw_sa< (Q3_football_sa + 1.5*IQR_football_sa))
 ```
 
 ```{r}
