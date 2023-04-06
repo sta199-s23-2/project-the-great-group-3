@@ -65,74 +65,73 @@ We will answer our research question by creating regression models comparing ath
 #| label: filter-ncaa
 
 eada_NCAA <- eada |>
-  filter(classification_name == c("NCAA Division I-FCS", 
-                                  "NCAA Division I-FBS", 
-                                  "NCAA Division I without football", 
-                                  "NCAA Division II with football", 
-                                  "NCAA Division II without football", 
-                                  "NCAA Division III with football", 
-                                  "NCAA Division III without football",
-                                  ""))
+  filter(classification_name == "NCAA Division I-FCS" | 
+        classification_name == "NCAA Division I-FBS" | 
+        classification_name == "NCAA Division I without football" |
+        classification_name == "NCAA Division II with football" |
+        classification_name == "NCAA Division II without football" | 
+        classification_name == "NCAA Division III with football" |
+        classification_name == "NCAA Division III without football")
 ```
 
 ```{r}
 #| label: filter-private
 
 eada_private <- eada |>
-  filter(sector_name == c("Private nonprofit, 4-year or above", 
-         "Private for-profit, 4-year or above"))
+  filter(sector_name == "Private nonprofit, 4-year or above" | 
+         sector_name == "Private for-profit, 4-year or above")
 ```
 
 ```{r}
 #| label: filter-public
 
 eada_public <- eada |>
-  filter(sector_name == c("Public, 4-year or above", "Public, 2-year"))
+  filter(sector_name == "Public, 4-year or above" | 
+         sector_name == "Public, 2-year")
 ```
 
 ```{r}
 #| label: filter-nofootball
 
 eada_nofootball <- eada |>
-  filter(classification_name == c("NCAA Division I without football", 
-                                  "NCAA Division II without football", 
-                                  "NCAA Division III without football"))
+  filter(classification_name == "NCAA Division I without football" |
+        classification_name == "NCAA Division II without football" | 
+        classification_name == "NCAA Division III without football")
 ```
 
 ```{r}
 #| label: filter-football
 
 eada_football <- eada |>
-  filter(classification_name != c("NCAA Division I without football", 
-                                  "NCAA Division II without football", 
-                                  "NCAA Division III without football"))
+  filter(classification_name != "NCAA Division I without football" | 
+         classification_name != "NCAA Division II without football" | 
+         classification_name != "NCAA Division III without football")
 ```
 
 ```{r}
 #| label: filter-divisionI
 
 eada_divisionI <- eada |>
-  filter(classification_name == c("NCAA Division I-FCS",
-                                  "NCAA Division I-FBS",
-                                  "NCAA Division I without football"))
+  filter(classification_name == "NCAA Division I-FCS" |
+         classification_name == "NCAA Division I-FBS" |
+         classification_name == "NCAA Division I without football")
 ```
 
 ```{r}
 #| label: filter-divisionII
 
 eada_divisionII <- eada |>
-  filter(classification_name == c("NCAA Division II with football",
-                                  "NCAA Division II without football"))
+  filter(classification_name == "NCAA Division II with football" |
+        classification_name == "NCAA Division II without football")
 ```
 
 ```{r}
 #| label: filter-divisionIII
 
 eada_divisionIII <- eada |>
-  filter(classification_name == c("NCAA Division III with football",
-                                  "NCAA Division III without football"))
+  filter(classification_name == "NCAA Division III with football" |
+         classification_name == "NCAA Division III without football")
 ```
-
 
 ```{r}
 #label: main-visualization
@@ -206,4 +205,3 @@ eada_divisionIII |>
         y = ratio_mw_ep)
   ) + geom_point()
 ```
-
