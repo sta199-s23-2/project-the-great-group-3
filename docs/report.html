@@ -212,7 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ✖ dplyr::lag()      masks stats::lag()
 ✖ yardstick::spec() masks readr::spec()
 ✖ recipes::step()   masks stats::step()
-• Use tidymodels_prefer() to resolve common conflicts.</code></pre>
+• Search for functions across packages at https://www.tidymodels.org/find/</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -303,7 +303,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>eada_NCAA <span class="ot">&lt;-</span> <span class="fu">subset</span>(eada_NCAA, eada_NCAA<span class="sc">$</span>ratio_mw_sa<span class="sc">&gt;</span> (Q1_NCAA_sa <span class="sc">-</span> <span class="fl">1.5</span><span class="sc">*</span>IQR_NCAA_sa) <span class="sc">&amp;</span> eada_NCAA<span class="sc">$</span>ratio_mw_sa<span class="sc">&lt;</span> (Q3_NCAA_sa <span class="sc">+</span> <span class="fl">1.5</span><span class="sc">*</span>IQR_NCAA_sa))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>eada_private <span class="ot">&lt;-</span> eada <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>eada_private <span class="ot">&lt;-</span> eada_NCAA <span class="sc">|&gt;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sector_name <span class="sc">==</span> <span class="st">"Private nonprofit, 4-year or above"</span> <span class="sc">|</span> </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>         sector_name <span class="sc">==</span> <span class="st">"Private for-profit, 4-year or above"</span>)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -323,7 +323,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>eada_private <span class="ot">&lt;-</span> <span class="fu">subset</span>(eada_private, eada_private<span class="sc">$</span>ratio_mw_sa<span class="sc">&gt;</span> (Q1_priv_sa <span class="sc">-</span> <span class="fl">1.5</span><span class="sc">*</span>IQR_priv_sa) <span class="sc">&amp;</span> eada_private<span class="sc">$</span>ratio_mw_sa<span class="sc">&lt;</span> (Q3_priv_sa <span class="sc">+</span> <span class="fl">1.5</span><span class="sc">*</span>IQR_priv_sa))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>eada_public <span class="ot">&lt;-</span> eada <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>eada_public <span class="ot">&lt;-</span> eada_NCAA <span class="sc">|&gt;</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sector_name <span class="sc">==</span> <span class="st">"Public, 4-year or above"</span> <span class="sc">|</span> </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>         sector_name <span class="sc">==</span> <span class="st">"Public, 2-year"</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -517,8 +517,8 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC, r.squared)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0.0997219550028297 
-           877.346 </code></pre>
+<pre><code>0.112223105145674 
+         490.8492 </code></pre>
 </div>
 </div>
 <p>Public Schools</p>
@@ -542,8 +542,8 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC, r.squared)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0.0887156536070318 
-          1726.287 </code></pre>
+<pre><code>0.0818346252647914 
+          869.6874 </code></pre>
 </div>
 </div>
 <p>Football Schools</p>
@@ -671,6 +671,10 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
          -1.120288 </code></pre>
 </div>
 </div>
+<p><strong>Results</strong></p>
+<p>This prediction model was aimed at testing whether the financial allocation universities spent on athletic scholarship could predict the amount they allocated for recruitment. We filtered the data through three different variables: whether the school had a football program or not, whether the school was public or private, and whether the school was Division I, II, or III.</p>
+<p>It is important to note the biases that may have effected the data outcome. Division III schools do not allocate any money towards athletic scholarships. Furthermore, financial capabilities widely vary between public and private schools, as well as, how much income the school makes from their athletic programs.</p>
+<p>After filtering the data, we ran an AIC metric on all the subsets of the data to compare the different regression models. There was a more accurate trend observed in the private vs.&nbsp;public data-set, meaning that model offers the best fit. Amongst all the graphs, there is a low positive correlation observed. Then we ran an R squared test. This would tell us the significance in the correlation between the two variables: scholarship funds versus recruitment funds. The R squared test revealed that there is a very insignificant correlation between the two chosen variables.</p>
 
 
 
