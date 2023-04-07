@@ -247,7 +247,7 @@ eada |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)
-  ) + geom_point()
+  ) + geom_point() + geom_smooth(method = "lm")
 ```
 
 ```{r}
@@ -259,13 +259,49 @@ linear_reg() |>
   pull(AIC)
 ```
 
+Outliers Taken Out
+
+```{r}
+#label: viz-no-outs
+Q1_no_outs_ep <- quantile(eada$ratio_mw_ep, .25)
+Q1_no_outs_sa <- quantile(eada$ratio_mw_sa, .25)
+
+Q3_no_outs_ep <- quantile(eada$ratio_mw_ep, .75)
+Q3_no_outs_sa <- quantile(eada$ratio_mw_sa, .75)
+
+IQR_no_outs_ep <- IQR(eada$ratio_mw_ep)
+IQR_no_outs_sa <- IQR(eada$ratio_mw_sa)
+
+eada_no_outs <- subset(eada, eada$ratio_mw_ep> (Q1_no_outs_ep - 1.5*IQR_no_outs_ep) & eada$ratio_mw_ep< (Q3_no_outs_ep + 1.5*IQR_no_outs_ep))
+
+eada_no_outs <- subset(eada, eada$ratio_mw_sa> (Q1_no_outs_sa - 1.5*IQR_no_outs_sa) & eada$ratio_mw_sa< (Q3_no_outs_sa + 1.5*IQR_no_outs_sa))
+
+eada_no_outs |>
+  ggplot(
+    aes(x = ratio_mw_sa,
+        y = ratio_mw_ep)) + 
+  geom_point() + geom_smooth(method = "lm")
+
+```
+
+```{r}
+#label: aic-no-outs
+linear_reg() |>
+  set_engine("lm") |>
+  fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_no_outs) |>
+  glance() |>
+  pull(AIC)
+```
+
+Private Schools
+
 ```{r}
 #label: viz-priv
 eada_private |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)) + 
-  geom_point()
+  geom_point() + geom_smooth(method = "lm")
 
 ```
 
@@ -279,13 +315,15 @@ linear_reg() |>
 
 ```
 
+Public Schools
+
 ```{r}
 #label: viz-public
 eada_public |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)
-  ) + geom_point()
+  ) + geom_point() + geom_smooth(method = "lm")
 ```
 
 ```{r}
@@ -297,13 +335,15 @@ linear_reg() |>
   pull(AIC)
 ```
 
+Football Schools
+
 ```{r}
 #label: viz-football
 eada_football |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)
-  ) + geom_point()
+  ) + geom_point() + geom_smooth(method = "lm")
 ```
 
 ```{r}
@@ -315,13 +355,15 @@ linear_reg() |>
   pull(AIC)
 ```
 
+Schools with No Football
+
 ```{r}
 #label: viz-no-football
 eada_nofootball |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)
-  ) + geom_point()
+  ) + geom_point() + geom_smooth(method = "lm")
 ```
 
 ```{r}
@@ -333,13 +375,15 @@ linear_reg() |>
   pull(AIC)
 ```
 
+Division I Schools
+
 ```{r}
 #label: viz-d1
 eada_divisionI |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)
-  ) + geom_point()
+  ) + geom_point() + geom_smooth(method = "lm")
 ```
 
 ```{r}
@@ -351,13 +395,15 @@ linear_reg() |>
   pull(AIC)
 ```
 
+Division II Schools
+
 ```{r}
 #label: viz-d2
 eada_divisionII |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)
-  ) + geom_point()
+  ) + geom_point() + geom_smooth(method = "lm")
 ```
 
 ```{r}
@@ -369,13 +415,15 @@ linear_reg() |>
   pull(AIC)
 ```
 
+Division III Schools
+
 ```{r}
 #label: viz-d3
 eada_divisionIII |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)
-  ) + geom_point()
+  ) + geom_point() + geom_smooth(method = "lm")
 
 ```
 
