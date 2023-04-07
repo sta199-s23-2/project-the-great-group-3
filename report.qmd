@@ -12,6 +12,7 @@ execute:
 
 
 library(tidyverse)
+library(tidymodels)
 ```
 
 ```{r}
@@ -252,12 +253,32 @@ eada |>
 ```
 
 ```{r}
+#label: AIC-main
+linear_reg() |>
+  set_engine("lm") |>
+  fit(ratio_mw_ep ~ ratio_mw_sa, data = eada) |>
+  glance() |>
+  pull(AIC)
+```
+
+```{r}
 #label: viz-priv
 eada_private |>
   ggplot(
     aes(x = ratio_mw_sa,
-        y = ratio_mw_ep)
-  ) + geom_point()
+        y = ratio_mw_ep)) + 
+  geom_point()
+
+```
+
+```{r}
+#label: AIC-priv
+linear_reg() |>
+  set_engine("lm") |>
+  fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_private) |>
+  glance() |>
+  pull(AIC)
+
 ```
 
 ```{r}
@@ -270,12 +291,30 @@ eada_public |>
 ```
 
 ```{r}
+#label: AIC-public
+linear_reg() |>
+  set_engine("lm") |>
+  fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_public) |>
+  glance() |>
+  pull(AIC)
+```
+
+```{r}
 #label: viz-football
 eada_football |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)
   ) + geom_point()
+```
+
+```{r}
+#label: AIC-football
+linear_reg() |>
+  set_engine("lm") |>
+  fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_football) |>
+  glance() |>
+  pull(AIC)
 ```
 
 ```{r}
@@ -288,12 +327,30 @@ eada_nofootball |>
 ```
 
 ```{r}
+#label: AIC-no-football
+linear_reg() |>
+  set_engine("lm") |>
+  fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_nofootball) |>
+  glance() |>
+  pull(AIC)
+```
+
+```{r}
 #label: viz-d1
 eada_divisionI |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)
   ) + geom_point()
+```
+
+```{r}
+#label: AIC-d1
+linear_reg() |>
+  set_engine("lm") |>
+  fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_divisionI) |>
+  glance() |>
+  pull(AIC)
 ```
 
 ```{r}
@@ -306,6 +363,15 @@ eada_divisionII |>
 ```
 
 ```{r}
+#label: AIC-d2
+linear_reg() |>
+  set_engine("lm") |>
+  fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_divisionII) |>
+  glance() |>
+  pull(AIC)
+```
+
+```{r}
 #label: viz-d3
 eada_divisionIII |>
   ggplot(
@@ -313,4 +379,13 @@ eada_divisionIII |>
         y = ratio_mw_ep)
   ) + geom_point()
 
+```
+
+```{r}
+#label: AIC-d3
+linear_reg() |>
+  set_engine("lm") |>
+  fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_divisionIII) |>
+  glance() |>
+  pull(AIC)
 ```
