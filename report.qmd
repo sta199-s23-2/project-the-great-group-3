@@ -241,7 +241,7 @@ eada_divisionIII <- subset(eada_divisionIII, eada_divisionIII$ratio_mw_sa> (Q1_d
 ```
 
 ```{r}
-#label: main-visualization
+#| label: main-visualization
 
 eada |>
   ggplot(
@@ -251,18 +251,18 @@ eada |>
 ```
 
 ```{r}
-#label: AIC-main
+#| label: AIC-main
 linear_reg() |>
   set_engine("lm") |>
   fit(ratio_mw_ep ~ ratio_mw_sa, data = eada) |>
   glance() |>
-  pull(AIC)
+  pull(AIC, r.squared)
 ```
 
 Outliers Taken Out
 
 ```{r}
-#label: viz-no-outs
+#| label: viz-no-outs
 Q1_no_outs_ep <- quantile(eada$ratio_mw_ep, .25)
 Q1_no_outs_sa <- quantile(eada$ratio_mw_sa, .25)
 
@@ -285,18 +285,18 @@ eada_no_outs |>
 ```
 
 ```{r}
-#label: aic-no-outs
+#| label: aic-no-outs
 linear_reg() |>
   set_engine("lm") |>
   fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_no_outs) |>
   glance() |>
-  pull(AIC)
+  pull(AIC, r.squared)
 ```
 
 Private Schools
 
 ```{r}
-#label: viz-priv
+#| label: viz-priv
 eada_private |>
   ggplot(
     aes(x = ratio_mw_sa,
@@ -306,19 +306,19 @@ eada_private |>
 ```
 
 ```{r}
-#label: AIC-priv
+#| label: AIC-priv
 linear_reg() |>
   set_engine("lm") |>
   fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_private) |>
   glance() |>
-  pull(AIC)
+  pull(AIC, r.squared)
 
 ```
 
 Public Schools
 
 ```{r}
-#label: viz-public
+#| label: viz-public
 eada_public |>
   ggplot(
     aes(x = ratio_mw_sa,
@@ -327,18 +327,18 @@ eada_public |>
 ```
 
 ```{r}
-#label: AIC-public
+#| label: AIC-public
 linear_reg() |>
   set_engine("lm") |>
   fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_public) |>
   glance() |>
-  pull(AIC)
+  pull(AIC, r.squared)
 ```
 
 Football Schools
 
 ```{r}
-#label: viz-football
+#| label: viz-football
 eada_football |>
   ggplot(
     aes(x = ratio_mw_sa,
@@ -347,18 +347,19 @@ eada_football |>
 ```
 
 ```{r}
-#label: AIC-football
+#| label: AIC-football
 linear_reg() |>
   set_engine("lm") |>
   fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_football) |>
   glance() |>
-  pull(AIC)
+  pull(AIC, r.squared)
+  
 ```
 
 Schools with No Football
 
 ```{r}
-#label: viz-no-football
+#| label: viz-no-football
 eada_nofootball |>
   ggplot(
     aes(x = ratio_mw_sa,
@@ -367,18 +368,18 @@ eada_nofootball |>
 ```
 
 ```{r}
-#label: AIC-no-football
+#| label: AIC-no-football
 linear_reg() |>
   set_engine("lm") |>
   fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_nofootball) |>
   glance() |>
-  pull(AIC)
+  pull(AIC, r.squared)
 ```
 
 Division I Schools
 
 ```{r}
-#label: viz-d1
+#| label: viz-d1
 eada_divisionI |>
   ggplot(
     aes(x = ratio_mw_sa,
@@ -387,18 +388,18 @@ eada_divisionI |>
 ```
 
 ```{r}
-#label: AIC-d1
+#| label: AIC-d1
 linear_reg() |>
   set_engine("lm") |>
   fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_divisionI) |>
   glance() |>
-  pull(AIC)
+  pull(AIC, r.squared)
 ```
 
 Division II Schools
 
 ```{r}
-#label: viz-d2
+#| label: viz-d2
 eada_divisionII |>
   ggplot(
     aes(x = ratio_mw_sa,
@@ -407,18 +408,18 @@ eada_divisionII |>
 ```
 
 ```{r}
-#label: AIC-d2
+#| label: AIC-d2
 linear_reg() |>
   set_engine("lm") |>
   fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_divisionII) |>
   glance() |>
-  pull(AIC)
+  pull(AIC, r.squared)
 ```
 
 Division III Schools
 
 ```{r}
-#label: viz-d3
+#| label: viz-d3
 eada_divisionIII |>
   ggplot(
     aes(x = ratio_mw_sa,
@@ -428,10 +429,12 @@ eada_divisionIII |>
 ```
 
 ```{r}
-#label: AIC-d3
+#| label: AIC-d3
 linear_reg() |>
   set_engine("lm") |>
   fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_divisionIII) |>
   glance() |>
-  pull(AIC)
+  pull(AIC, r.squared)
 ```
+
+
