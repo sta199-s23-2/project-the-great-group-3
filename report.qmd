@@ -90,7 +90,7 @@ eada_NCAA <- subset(eada_NCAA, eada_NCAA$ratio_mw_sa> (Q1_NCAA_sa - 1.5*IQR_NCAA
 ```{r}
 #| label: filter-private
 
-eada_private <- eada |>
+eada_private <- eada_NCAA |>
   filter(sector_name == "Private nonprofit, 4-year or above" | 
          sector_name == "Private for-profit, 4-year or above")
 
@@ -113,7 +113,7 @@ eada_private <- subset(eada_private, eada_private$ratio_mw_sa> (Q1_priv_sa - 1.5
 ```{r}
 #| label: filter-public
 
-eada_public <- eada |>
+eada_public <- eada_NCAA |>
   filter(sector_name == "Public, 4-year or above" | 
          sector_name == "Public, 2-year")
 
@@ -241,7 +241,7 @@ eada_divisionIII <- subset(eada_divisionIII, eada_divisionIII$ratio_mw_sa> (Q1_d
 ```
 
 ```{r}
-#label: main-visualization
+#| label: main-visualization
 
 eada |>
   ggplot(
@@ -257,18 +257,18 @@ eada |>
 ```
 
 ```{r}
-#label: AIC-main
+#| label: AIC-main
 linear_reg() |>
   set_engine("lm") |>
   fit(ratio_mw_ep ~ ratio_mw_sa, data = eada) |>
   glance() |>
-  pull(AIC)
+  pull(AIC, r.squared)
 ```
 
 Outliers Taken Out
 
 ```{r}
-#label: viz-no-outs
+#| label: viz-no-outs
 Q1_no_outs_ep <- quantile(eada$ratio_mw_ep, .25)
 Q1_no_outs_sa <- quantile(eada$ratio_mw_sa, .25)
 
@@ -295,18 +295,18 @@ eada_no_outs |>
 ```
 
 ```{r}
-#label: aic-no-outs
+#| label: aic-no-outs
 linear_reg() |>
   set_engine("lm") |>
   fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_no_outs) |>
   glance() |>
-  pull(AIC)
+  pull(AIC, r.squared)
 ```
 
 Private Schools
 
 ```{r}
-#label: viz-priv
+#| label: viz-priv
 eada_private |>
   ggplot(
     aes(x = ratio_mw_sa,
@@ -320,19 +320,19 @@ eada_private |>
 ```
 
 ```{r}
-#label: AIC-priv
+#| label: AIC-priv
 linear_reg() |>
   set_engine("lm") |>
   fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_private) |>
   glance() |>
-  pull(AIC)
+  pull(AIC, r.squared)
 
 ```
 
 Public Schools
 
 ```{r}
-#label: viz-public
+#| label: viz-public
 eada_public |>
   ggplot(
     aes(x = ratio_mw_sa,
@@ -345,18 +345,18 @@ eada_public |>
 ```
 
 ```{r}
-#label: AIC-public
+#| label: AIC-public
 linear_reg() |>
   set_engine("lm") |>
   fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_public) |>
   glance() |>
-  pull(AIC)
+  pull(AIC, r.squared)
 ```
 
 Football Schools
 
 ```{r}
-#label: viz-football
+#| label: viz-football
 eada_football |>
   ggplot(
     aes(x = ratio_mw_sa,
@@ -369,18 +369,19 @@ eada_football |>
 ```
 
 ```{r}
-#label: AIC-football
+#| label: AIC-football
 linear_reg() |>
   set_engine("lm") |>
   fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_football) |>
   glance() |>
-  pull(AIC)
+  pull(AIC, r.squared)
+  
 ```
 
 Schools with No Football
 
 ```{r}
-#label: viz-no-football
+#| label: viz-no-football
 eada_nofootball |>
   ggplot(
     aes(x = ratio_mw_sa,
@@ -393,18 +394,18 @@ eada_nofootball |>
 ```
 
 ```{r}
-#label: AIC-no-football
+#| label: AIC-no-football
 linear_reg() |>
   set_engine("lm") |>
   fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_nofootball) |>
   glance() |>
-  pull(AIC)
+  pull(AIC, r.squared)
 ```
 
 Division I Schools
 
 ```{r}
-#label: viz-d1
+#| label: viz-d1
 eada_divisionI |>
   ggplot(
     aes(x = ratio_mw_sa,
@@ -417,18 +418,18 @@ eada_divisionI |>
 ```
 
 ```{r}
-#label: AIC-d1
+#| label: AIC-d1
 linear_reg() |>
   set_engine("lm") |>
   fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_divisionI) |>
   glance() |>
-  pull(AIC)
+  pull(AIC, r.squared)
 ```
 
 Division II Schools
 
 ```{r}
-#label: viz-d2
+#| label: viz-d2
 eada_divisionII |>
   ggplot(
     aes(x = ratio_mw_sa,
@@ -441,18 +442,18 @@ eada_divisionII |>
 ```
 
 ```{r}
-#label: AIC-d2
+#| label: AIC-d2
 linear_reg() |>
   set_engine("lm") |>
   fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_divisionII) |>
   glance() |>
-  pull(AIC)
+  pull(AIC, r.squared)
 ```
 
 Division III Schools
 
 ```{r}
-#label: viz-d3
+#| label: viz-d3
 eada_divisionIII |>
   ggplot(
     aes(x = ratio_mw_sa,
@@ -466,10 +467,18 @@ eada_divisionIII |>
 ```
 
 ```{r}
-#label: AIC-d3
+#| label: AIC-d3
 linear_reg() |>
   set_engine("lm") |>
   fit(ratio_mw_ep ~ ratio_mw_sa, data = eada_divisionIII) |>
   glance() |>
-  pull(AIC)
+  pull(AIC, r.squared)
 ```
+
+**Results**
+
+This prediction model was aimed at testing whether the financial allocation universities spent on athletic scholarship could predict the amount they allocated for recruitment. We filtered the data through three different variables: whether the school had a football program or not, whether the school was public or private, and whether the school was Division I, II, or III.
+
+It is important to note the biases that may have effected the data outcome. Division III schools do not allocate any money towards athletic scholarships. Furthermore, financial capabilities widely vary between public and private schools, as well as, how much income the school makes from their athletic programs.
+
+After filtering the data, we ran an AIC metric on all the subsets of the data to compare the different regression models. There was a more accurate trend observed in the private vs. public data-set, meaning that model offers the best fit. Amongst all the graphs, there is a low positive correlation observed. Then we ran an R squared test. This would tell us the significance in the correlation between the two variables: scholarship funds versus recruitment funds. The R squared test revealed that there is a very insignificant correlation between the two chosen variables.
