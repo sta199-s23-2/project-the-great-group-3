@@ -247,7 +247,13 @@ eada |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)
-  ) + geom_point() + geom_smooth(method = "lm")
+  ) + 
+  geom_point() + 
+  geom_smooth(method = "lm") +
+  labs(x = "Ratio of Student Aid of Men to Women", 
+       y = "Ratio of Recruiting Expenditures of Men to Women",
+       title = "Relationship between Student Aid and Recruting Expenditures",
+       subtitle = "Ratios of Men to Women")
 ```
 
 ```{r}
@@ -280,7 +286,11 @@ eada_no_outs |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)) + 
-  geom_point() + geom_smooth(method = "lm")
+  geom_point() + geom_smooth(method = "lm") +
+  labs(x = "Ratio of Student Aid of Men to Women", 
+       y = "Ratio of Recruiting Expenditures of Men to Women",
+       title = "Relationship between Student Aid and Recruting Expenditures",
+       subtitle = "Outliers taken out")
 
 ```
 
@@ -301,7 +311,11 @@ eada_private |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)) + 
-  geom_point() + geom_smooth(method = "lm")
+  geom_point() + geom_smooth(method = "lm") +
+   labs(x = "Ratio of Student Aid of Men to Women", 
+       y = "Ratio of Recruiting Expenditures of Men to Women",
+       title = "Relationship between Student Aid and Recruting Expenditures",
+       subtitle = "Private Schools")
 
 ```
 
@@ -323,7 +337,11 @@ eada_public |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)
-  ) + geom_point() + geom_smooth(method = "lm")
+  ) + geom_point() + geom_smooth(method = "lm") +
+ labs(x = "Ratio of Student Aid of Men to Women", 
+       y = "Ratio of Recruiting Expenditures of Men to Women",
+       title = "Relationship between Student Aid and Recruting Expenditures",
+       subtitle = "Public Schools")
 ```
 
 ```{r}
@@ -343,7 +361,11 @@ eada_football |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)
-  ) + geom_point() + geom_smooth(method = "lm")
+  ) + geom_point() + geom_smooth(method = "lm") +
+   labs(x = "Ratio of Student Aid of Men to Women", 
+       y = "Ratio of Recruiting Expenditures of Men to Women",
+       title = "Relationship between Student Aid and Recruting Expenditures",
+       subtitle = "Schools with football")
 ```
 
 ```{r}
@@ -363,7 +385,11 @@ eada_nofootball |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)
-  ) + geom_point() + geom_smooth(method = "lm")
+  ) + geom_point() + geom_smooth(method = "lm") +
+   labs(x = "Ratio of Student Aid of Men to Women", 
+       y = "Ratio of Recruiting Expenditures of Men to Women",
+       title = "Relationship between Student Aid and Recruting Expenditures",
+       subtitle = "Schools with no football")
 ```
 
 ```{r}
@@ -383,7 +409,11 @@ eada_divisionI |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)
-  ) + geom_point() + geom_smooth(method = "lm")
+  ) + geom_point() + geom_smooth(method = "lm") +
+   labs(x = "Ratio of Student Aid of Men to Women", 
+       y = "Ratio of Recruiting Expenditures of Men to Women",
+       title = "Relationship between Student Aid and Recruting Expenditures",
+       subtitle = "Division I schools")
 ```
 
 ```{r}
@@ -403,7 +433,11 @@ eada_divisionII |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)
-  ) + geom_point() + geom_smooth(method = "lm")
+  ) + geom_point() + geom_smooth(method = "lm") +
+   labs(x = "Ratio of Student Aid of Men to Women", 
+       y = "Ratio of Recruiting Expenditures of Men to Women",
+       title = "Relationship between Student Aid and Recruting Expenditures",
+       subtitle = "Division II schools")
 ```
 
 ```{r}
@@ -423,7 +457,11 @@ eada_divisionIII |>
   ggplot(
     aes(x = ratio_mw_sa,
         y = ratio_mw_ep)
-  ) + geom_point() + geom_smooth(method = "lm")
+  ) + geom_point() + geom_smooth(method = "lm") +
+   labs(x = "Ratio of Student Aid of Men to Women", 
+       y = "Ratio of Recruiting Expenditures of Men to Women",
+       title = "Relationship between Student Aid and Recruting Expenditures",
+       subtitle = "Division III schools")
 
 ```
 
