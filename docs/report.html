@@ -212,7 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ✖ dplyr::lag()      masks stats::lag()
 ✖ yardstick::spec() masks readr::spec()
 ✖ recipes::step()   masks stats::step()
-• Use tidymodels_prefer() to resolve common conflicts.</code></pre>
+• Learn how to get started at https://www.tidymodels.org/start/</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -466,7 +466,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
           7723.431 </code></pre>
 </div>
 </div>
-<p>Outliers Taken Out</p>
+<p>While filtering our data sets, we made the decision to remove outliers using the formula (1st Quadrant - 1.5(IQR)), (3rd Quadrant + 1.5(IQR)). While originally analyzing our data, the outliers strongly influenced what seemed like an exponential model. As a result, we decided to take out the outliers and calculate a linear model to examine how strongly the male to female ratio of student aid is related to the male to female ratio of recruiting expenditures. Below is the change in our plot and linear model fit.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Q1_no_outs_ep <span class="ot">&lt;-</span> <span class="fu">quantile</span>(eada<span class="sc">$</span>ratio_mw_ep, .<span class="dv">25</span>)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>Q1_no_outs_sa <span class="ot">&lt;-</span> <span class="fu">quantile</span>(eada<span class="sc">$</span>ratio_mw_sa, .<span class="dv">25</span>)</span>
@@ -508,7 +508,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
             7409.35 </code></pre>
 </div>
 </div>
-<p>Private Schools</p>
+<p>Private vs.&nbsp;public schools have two very different financial structures, so we thought there may be a tangible difference in how the two ratios relate to each other. Below, we fit a linear model and calculated the AIC and r squared for each.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>eada_private <span class="sc">|&gt;</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
@@ -537,7 +537,6 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
          490.8492 </code></pre>
 </div>
 </div>
-<p>Public Schools</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>eada_public <span class="sc">|&gt;</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
@@ -566,7 +565,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
           869.6874 </code></pre>
 </div>
 </div>
-<p>Football Schools</p>
+<p>For most collegiate athletic programs in the United States, football serves as the primary source of revenue. As a result, we decided to look at how the inclusion or absence of football impacted the fit of the linear model. Below, there's the AIC and r squared calculated for each.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>eada_football <span class="sc">|&gt;</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
@@ -595,7 +594,6 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
           2484.094 </code></pre>
 </div>
 </div>
-<p>Schools with No Football</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>eada_nofootball <span class="sc">|&gt;</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
@@ -624,7 +622,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
           374.6477 </code></pre>
 </div>
 </div>
-<p>Division I Schools</p>
+<p>Finally, as the level of competition increases, so does the level of finances. With that being said, we split the data into three categories by division and looked at how it impacted a linear model fit. The AIC and r squared values are calculated below for each.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>eada_divisionI <span class="sc">|&gt;</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
@@ -653,7 +651,6 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
          1167.375 </code></pre>
 </div>
 </div>
-<p>Division II Schools</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>eada_divisionII <span class="sc">|&gt;</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
@@ -682,7 +679,6 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
          554.4589 </code></pre>
 </div>
 </div>
-<p>Division III Schools</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>eada_divisionIII <span class="sc">|&gt;</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>

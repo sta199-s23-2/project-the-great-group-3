@@ -269,7 +269,7 @@ linear_reg() |>
   pull(AIC, r.squared)
 ```
 
-Outliers Taken Out
+While filtering our data sets, we made the decision to remove outliers using the formula (1st Quadrant - 1.5(IQR)), (3rd Quadrant + 1.5(IQR)). While originally analyzing our data, the outliers strongly influenced what seemed like an exponential model. As a result, we decided to take out the outliers and calculate a linear model to examine how strongly the male to female ratio of student aid is related to the male to female ratio of recruiting expenditures. Below is the change in our plot and linear model fit.
 
 ```{r}
 #| label: viz-no-outs
@@ -307,7 +307,7 @@ linear_reg() |>
   pull(AIC, r.squared)
 ```
 
-Private Schools
+Private vs. public schools have two very different financial structures, so we thought there may be a tangible difference in how the two ratios relate to each other. Below, we fit a linear model and calculated the AIC and r squared for each.
 
 ```{r}
 #| label: viz-priv
@@ -333,8 +333,6 @@ linear_reg() |>
 
 ```
 
-Public Schools
-
 ```{r}
 #| label: viz-public
 eada_public |>
@@ -357,7 +355,7 @@ linear_reg() |>
   pull(AIC, r.squared)
 ```
 
-Football Schools
+For most collegiate athletic programs in the United States, football serves as the primary source of revenue. As a result, we decided to look at how the inclusion or absence of football impacted the fit of the linear model. Below, there\'s the AIC and r squared calculated for each.
 
 ```{r}
 #| label: viz-football
@@ -382,8 +380,6 @@ linear_reg() |>
   
 ```
 
-Schools with No Football
-
 ```{r}
 #| label: viz-no-football
 eada_nofootball |>
@@ -406,7 +402,7 @@ linear_reg() |>
   pull(AIC, r.squared)
 ```
 
-Division I Schools
+Finally, as the level of competition increases, so does the level of finances. With that being said, we split the data into three categories by division and looked at how it impacted a linear model fit. The AIC and r squared values are calculated below for each.
 
 ```{r}
 #| label: viz-d1
@@ -430,8 +426,6 @@ linear_reg() |>
   pull(AIC, r.squared)
 ```
 
-Division II Schools
-
 ```{r}
 #| label: viz-d2
 eada_divisionII |>
@@ -453,8 +447,6 @@ linear_reg() |>
   glance() |>
   pull(AIC, r.squared)
 ```
-
-Division III Schools
 
 ```{r}
 #| label: viz-d3
