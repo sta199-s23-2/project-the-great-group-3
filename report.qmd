@@ -355,7 +355,7 @@ linear_reg() |>
   pull(AIC, r.squared)
 ```
 
-For most collegiate athletic programs in the United States, football serves as the primary source of revenue. As a result, we decided to look at how the inclusion or absence of football impacted the fit of the linear model. Below, there\'s the AIC and r squared calculated for each.
+For most collegiate athletic programs in the United States, football serves as the primary source of revenue. As a result, we decided to look at how the inclusion or absence of football impacted the fit of the linear model. Below, there's the AIC and r squared calculated for each.
 
 ```{r}
 #| label: viz-football
@@ -470,6 +470,43 @@ linear_reg() |>
   glance() |>
   pull(AIC, r.squared)
 ```
+
+```{r}
+#| label: datawrangle-model
+
+eada_wrangled <- eada_no_outs |>
+  mutate(division = case_when(
+    classification_name == "NCAA Division I-FCS" ~ "one",
+    classification_name == "NCAA Division I-FBS" ~ "one",
+    classification_name == "NCAA Division I without football" ~ "one",
+    classification_name == "NCAA Division II with football" ~ "two",
+    classification_name == "NCAA Division II without football" ~ "two",
+    classification_name == "NCAA Division III without football" ~ "three",
+    classification_name == "NCAA Division III without football" ~ "three")) |>
+  mutate(football = case_when(
+    classification_name == "NCAA Division I without football" ~ "no football",
+    classification_name == "NCAA Division II without football" ~ "no football",
+    classification_name == "NCAA Division III without football" ~ "no football",
+    classification_name == "NCAA Division I-FCS" ~ "football",
+    classification_name == "NCAA Division I-FBS" ~ "football",
+    classification_name == "NCAA Division II with football" ~ "football", 
+    classification_name == "NCAA Division III with football" ~ "football")) |>
+  mutate(school_type = case_when(
+    sector_name == "Public, 4-year or above" ~ "public",
+    sector_name == "Public, 2-year" ~ "public",
+    sector_name == "Private nonprofit, 4-year or above" ~ "private", 
+    sector_name == "Private for-profit, 4-year or above" ~ "private"))
+```
+
+```{r}
+model <- linear_reg() |>
+  set_engine("lm") |>
+  fit(ratio_mw_ep ~ school_type + division + football + ratio_mw_sa, 
+      data = eada_wrangled) |>
+  tidy()
+```
+
+$\hat{ratio\_mw\_ep} = -0.651({school\_type}) - 0.829({division\_three}) - .848({division\_two}) - 1.592({football}) + 0.086({ratio\_mw\_sa})$
 
 **Results**
 

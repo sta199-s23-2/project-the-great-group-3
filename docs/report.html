@@ -122,6 +122,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -565,7 +566,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
           869.6874 </code></pre>
 </div>
 </div>
-<p>For most collegiate athletic programs in the United States, football serves as the primary source of revenue. As a result, we decided to look at how the inclusion or absence of football impacted the fit of the linear model. Below, there's the AIC and r squared calculated for each.</p>
+<p>For most collegiate athletic programs in the United States, football serves as the primary source of revenue. As a result, we decided to look at how the inclusion or absence of football impacted the fit of the linear model. Below, there’s the AIC and r squared calculated for each.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>eada_football <span class="sc">|&gt;</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
@@ -707,6 +708,38 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
          -1.120288 </code></pre>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>eada_wrangled <span class="ot">&lt;-</span> eada_no_outs <span class="sc">|&gt;</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">division =</span> <span class="fu">case_when</span>(</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    classification_name <span class="sc">==</span> <span class="st">"NCAA Division I-FCS"</span> <span class="sc">~</span> <span class="st">"one"</span>,</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    classification_name <span class="sc">==</span> <span class="st">"NCAA Division I-FBS"</span> <span class="sc">~</span> <span class="st">"one"</span>,</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>    classification_name <span class="sc">==</span> <span class="st">"NCAA Division I without football"</span> <span class="sc">~</span> <span class="st">"one"</span>,</span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>    classification_name <span class="sc">==</span> <span class="st">"NCAA Division II with football"</span> <span class="sc">~</span> <span class="st">"two"</span>,</span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>    classification_name <span class="sc">==</span> <span class="st">"NCAA Division II without football"</span> <span class="sc">~</span> <span class="st">"two"</span>,</span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>    classification_name <span class="sc">==</span> <span class="st">"NCAA Division III without football"</span> <span class="sc">~</span> <span class="st">"three"</span>,</span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>    classification_name <span class="sc">==</span> <span class="st">"NCAA Division III without football"</span> <span class="sc">~</span> <span class="st">"three"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">football =</span> <span class="fu">case_when</span>(</span>
+<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>    classification_name <span class="sc">==</span> <span class="st">"NCAA Division I without football"</span> <span class="sc">~</span> <span class="st">"no football"</span>,</span>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>    classification_name <span class="sc">==</span> <span class="st">"NCAA Division II without football"</span> <span class="sc">~</span> <span class="st">"no football"</span>,</span>
+<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>    classification_name <span class="sc">==</span> <span class="st">"NCAA Division III without football"</span> <span class="sc">~</span> <span class="st">"no football"</span>,</span>
+<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a>    classification_name <span class="sc">==</span> <span class="st">"NCAA Division I-FCS"</span> <span class="sc">~</span> <span class="st">"football"</span>,</span>
+<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a>    classification_name <span class="sc">==</span> <span class="st">"NCAA Division I-FBS"</span> <span class="sc">~</span> <span class="st">"football"</span>,</span>
+<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>    classification_name <span class="sc">==</span> <span class="st">"NCAA Division II with football"</span> <span class="sc">~</span> <span class="st">"football"</span>, </span>
+<span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a>    classification_name <span class="sc">==</span> <span class="st">"NCAA Division III with football"</span> <span class="sc">~</span> <span class="st">"football"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">school_type =</span> <span class="fu">case_when</span>(</span>
+<span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a>    sector_name <span class="sc">==</span> <span class="st">"Public, 4-year or above"</span> <span class="sc">~</span> <span class="st">"public"</span>,</span>
+<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a>    sector_name <span class="sc">==</span> <span class="st">"Public, 2-year"</span> <span class="sc">~</span> <span class="st">"public"</span>,</span>
+<span id="cb51-21"><a href="#cb51-21" aria-hidden="true" tabindex="-1"></a>    sector_name <span class="sc">==</span> <span class="st">"Private nonprofit, 4-year or above"</span> <span class="sc">~</span> <span class="st">"private"</span>, </span>
+<span id="cb51-22"><a href="#cb51-22" aria-hidden="true" tabindex="-1"></a>    sector_name <span class="sc">==</span> <span class="st">"Private for-profit, 4-year or above"</span> <span class="sc">~</span> <span class="st">"private"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(ratio_mw_ep <span class="sc">~</span> school_type <span class="sc">+</span> division <span class="sc">+</span> football <span class="sc">+</span> ratio_mw_sa, </span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> eada_wrangled) <span class="sc">|&gt;</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><span class="math inline">\(\hat{ratio\_mw\_ep} = -0.651({school\_type}) - 0.829({division\_three}) - .848({division\_two}) - 1.592({football}) + 0.086({ratio\_mw\_sa})\)</span></p>
 <p><strong>Results</strong></p>
 <p>This prediction model was aimed at testing whether the financial allocation universities spent on athletic scholarship could predict the amount they allocated for recruitment. We filtered the data through three different variables: whether the school had a football program or not, whether the school was public or private, and whether the school was Division I, II, or III.</p>
 <p>It is important to note the biases that may have effected the data outcome. Division III schools do not allocate any money towards athletic scholarships. Furthermore, financial capabilities widely vary between public and private schools, as well as, how much income the school makes from their athletic programs.</p>
