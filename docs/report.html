@@ -213,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ✖ dplyr::lag()      masks stats::lag()
 ✖ yardstick::spec() masks readr::spec()
 ✖ recipes::step()   masks stats::step()
-• Learn how to get started at https://www.tidymodels.org/start/</code></pre>
+• Dig deeper into tidy modeling with R at https://www.tmwr.org</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -272,7 +272,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <p><strong>Explanation of Topic</strong></p>
 <p>Our topic will specifically observe and investigate how much, on average, universities spend on recruitment. We will create a model that predicts this figure, based on the current a university’s expenditure on athletic scholarships for student athletes. We will break down a number of variables within the data, looking at whether the institution is public versus private, has a football program or not, and what athletic division it falls under (I, II, or III). Our research question is: To what extent can college athletics’ recruitment funds be predicted by the level of athletic scholarships provided to student athletes? We hypothesize that the ratio will, to a high degree, predict the recruitment funding — as schools who allocate more money into students’ financial aid will be willing to designate more money for their recruitment.</p>
 <p><strong>Ethical Issues</strong></p>
-<p>There are very few ethical issues anticipated with this investigation. However, it is important to note that source biases are an likely phenomenon. We must be careful with many self-reported information from university sites, and assuring that the data published can be verified.</p>
+<p>There are very few ethical issues anticipated with this investigation. However, it is important to note that source biases are a likely phenomenon. We must be careful with many self-reported information from university sites, and assuring that the data published can be verified.</p>
 <p><strong>Methodology</strong></p>
 <p>Research question: To what extent can college athletics’ recruitment funds be predicted by the level of athletic scholarships provided to student athletes?</p>
 <ul>
@@ -708,6 +708,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
          -1.120288 </code></pre>
 </div>
 </div>
+<p>To more fully answer our research question, we created a multivariate prediction model to reach conclusions about the factors that influence the male to female ratio of recruitment funds. Below, we wrangled our data set to create three new variables, school_type(private or public), football(football or no football), and division (one, two, or three). Then, we fit our multivariate prediction model.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>eada_wrangled <span class="ot">&lt;-</span> eada_no_outs <span class="sc">|&gt;</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">division =</span> <span class="fu">case_when</span>(</span>
@@ -739,7 +740,8 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> eada_wrangled) <span class="sc">|&gt;</span></span>
 <span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><span class="math inline">\(\hat{ratio\_mw\_ep} = -0.651({school\_type}) - 0.829({division\_three}) - .848({division\_two}) - 1.592({football}) + 0.086({ratio\_mw\_sa})\)</span></p>
+<p><span class="math inline">\(\hat{ratio\_mw\_ep} = 3.688 -0.651({school\_type}) - 0.829({division\_three}) - .848({division\_two}) - 1.592({no\_football}) + 0.086({ratio\_mw\_sa})\)</span></p>
+<p>Our model predicts that private, division one football schools have the highest ratio of male to female recruitment funds. Further, whether a school has football holds the highest weight as an influencing factor. Further, the model displays that there is a slight positive correlation between a higher male to female student aid ratio and a higher male to female recruitment fund ratio.</p>
 <p><strong>Results</strong></p>
 <p>This prediction model was aimed at testing whether the financial allocation universities spent on athletic scholarship could predict the amount they allocated for recruitment. We filtered the data through three different variables: whether the school had a football program or not, whether the school was public or private, and whether the school was Division I, II, or III.</p>
 <p>It is important to note the biases that may have effected the data outcome. Division III schools do not allocate any money towards athletic scholarships. Furthermore, financial capabilities widely vary between public and private schools, as well as, how much income the school makes from their athletic programs.</p>

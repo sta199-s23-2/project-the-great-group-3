@@ -50,7 +50,7 @@ Our topic will specifically observe and investigate how much, on average, univer
 
 **Ethical Issues**
 
-There are very few ethical issues anticipated with this investigation. However, it is important to note that source biases are an likely phenomenon. We must be careful with many self-reported information from university sites, and assuring that the data published can be verified.
+There are very few ethical issues anticipated with this investigation. However, it is important to note that source biases are a likely phenomenon. We must be careful with many self-reported information from university sites, and assuring that the data published can be verified.
 
 **Methodology**
 
@@ -471,6 +471,8 @@ linear_reg() |>
   pull(AIC, r.squared)
 ```
 
+To more fully answer our research question, we created a multivariate prediction model to reach conclusions about the factors that influence the male to female ratio of recruitment funds. Below, we wrangled our data set to create three new variables, school_type(private or public), football(football or no football), and division (one, two, or three). Then, we fit our multivariate prediction model.
+
 ```{r}
 #| label: datawrangle-model
 
@@ -506,7 +508,9 @@ model <- linear_reg() |>
   tidy()
 ```
 
-$\hat{ratio\_mw\_ep} = -0.651({school\_type}) - 0.829({division\_three}) - .848({division\_two}) - 1.592({football}) + 0.086({ratio\_mw\_sa})$
+$\hat{ratio\_mw\_ep} = 3.688 -0.651({school\_type}) - 0.829({division\_three}) - .848({division\_two}) - 1.592({no\_football}) + 0.086({ratio\_mw\_sa})$
+
+Our model predicts that private, division one football schools have the highest ratio of male to female recruitment funds. Further, whether a school has football holds the highest weight as an influencing factor. Further, the model displays that there is a slight positive correlation between a higher male to female student aid ratio and a higher male to female recruitment fund ratio.
 
 **Results**
 
