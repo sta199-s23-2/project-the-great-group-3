@@ -521,13 +521,13 @@ It is important to note the biases that may have effected the data outcome. Divi
 After filtering the data, we ran an AIC metric on all the subsets of the data to compare the different regression models. There was a more accurate trend observed in the private vs. public data-set, meaning that model offers the best fit. Amongst all the graphs, there is a low positive correlation observed. Then we ran an R squared test. This would tell us the significance in the correlation between the two variables: scholarship funds versus recruitment funds. The R squared test revealed that there is a very insignificant correlation between the two chosen variables.
 
 |                     |                           |                                            |                               |                              |
-|---------------|---------------|---------------|---------------|---------------|
+|---------------------|---------------------------|--------------------------------------------|-------------------------------|------------------------------|
 | [Data:]{.underline} | [All Schools]{.underline} | [All Schools Outliers Removed]{.underline} | [Private Schools]{.underline} | [Public Schools]{.underline} |
 | AIC:                | 7723.431                  | 7409.35                                    | 490.849                       | 869.687                      |
 | R Square:           | 0.008                     | 0.003                                      | 0.112                         | 0.082                        |
 
 |                     |                                |                                   |                          |                           |                            |
-|------------|------------|------------|------------|------------|------------|
+|---------------------|--------------------------------|-----------------------------------|--------------------------|---------------------------|----------------------------|
 | [Data:]{.underline} | [Football Schools]{.underline} | [No Football Schools]{.underline} | [DI Schools]{.underline} | [DII Schools]{.underline} | [DIII Schools]{.underline} |
 | AIC:                | 2484.094                       | 374.648                           | 1167.375                 | 554.459                   | -1.120                     |
 | R Square:           | 0.079                          | 0.025                             | 0.103                    | 0.127                     | 0.039                      |
