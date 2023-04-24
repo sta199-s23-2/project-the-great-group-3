@@ -213,11 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ✖ dplyr::lag()      masks stats::lag()
 ✖ yardstick::spec() masks readr::spec()
 ✖ recipes::step()   masks stats::step()
-<<<<<<< HEAD
-• Learn how to get started at https://www.tidymodels.org/start/</code></pre>
-=======
-• Search for functions across packages at https://www.tidymodels.org/find/</code></pre>
->>>>>>> 1900129b2aa13e4f4c74565212181adc81a4774c
+• Use suppressPackageStartupMessages() to eliminate package startup messages</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -276,7 +272,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <p><strong>Explanation of Topic</strong></p>
 <p>Our topic will specifically observe and investigate how much, on average, universities spend on recruitment. We will create a model that predicts this figure, based on the current a university’s expenditure on athletic scholarships for student athletes. We will break down a number of variables within the data, looking at whether the institution is public versus private, has a football program or not, and what athletic division it falls under (I, II, or III) The reason we chose these variables are as follows: (1) the monetary means of public institutions have a wide range – larger and older private schools often having more means, while samller private schools and public schools having less; (2) through the research for our literature review, it was found that the largest spending gap on sports occurred in schools that had a football program versus schools without a football program, schools with football often spending over $5 million more on sports programs; (3) division matters a great deal when considering expenditure on sports, with division I schools often allocating far more than division II and III (Desrochers, D. M. (2013, January). <em>Academic spending vs.&nbsp;athletic spending: Who wins?</em> . Delta Cost Project. Retrieved from https://www.air.org/sites/default/files/downloads/ report/Academic-Spending-vs-Athletic-Spending.pdf ). Our research question is: To what extent can college athletics’ recruitment funds be predicted by the level of athletic scholarships provided to student athletes? We hypothesize that the ratio will, to a high degree, predict the recruitment funding — as schools who allocate more money into students’ financial aid will be willing to designate more money for their recruitment.</p>
 <p><strong>Ethical Issues</strong></p>
-<p>There are very few ethical issues anticipated with this investigation. However, it is important to note that source biases are a likely phenomenon. We must be careful with many self-reported information from university sites, and assuring that the data published can be verified.</p>
+<p>There are very few ethical issues anticipated with this investigation. However, it is important to note that source biases are a likely phenomenon. We must be careful with many self-reported information from university sites, and assuring that the data published can be verified. An additional bias concern is disproportionately represented data. The data could represent certain regions or types of schools, which could skew the results. Transparency of the data is also an ethical concern to note. It is important that the data is transparently presented, and that the methods used to analyze the data are clearly explained. This will help ensure that the findings are trustworthy and can be used for the intended purpose. Lastly, the accuracy of the data is a possible ethical issue. It is possible that the data in the dataset is inaccurate or incomplete, which could lead to incorrect conclusions or decisions being made based on the data. These are the possible ethical issues that have been noted in the investigation.</p>
 <p><strong>Methodology</strong></p>
 <p>Research question: To what extent can college athletics’ recruitment funds be predicted by the level of athletic scholarships provided to student athletes?</p>
 <ul>
@@ -752,10 +748,10 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <p>After filtering the data, we ran an AIC metric on all the subsets of the data to compare the different regression models. There was a more accurate trend observed in the private vs.&nbsp;public data-set, meaning that model offers the best fit. Amongst all the graphs, there is a low positive correlation observed. Then we ran an R squared test. This would tell us the significance in the correlation between the two variables: scholarship funds versus recruitment funds. The R squared test revealed that there is a very insignificant correlation between the two chosen variables.</p>
 <table class="table">
 <colgroup>
-<col style="width: 13%">
-<col style="width: 17%">
-<col style="width: 28%">
-<col style="width: 20%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 23%">
+<col style="width: 19%">
 <col style="width: 19%">
 </colgroup>
 <tbody>
@@ -784,11 +780,11 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 </table>
 <table class="table">
 <colgroup>
-<col style="width: 12%">
-<col style="width: 18%">
-<col style="width: 20%">
-<col style="width: 15%">
-<col style="width: 15%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
 <col style="width: 16%">
 </colgroup>
 <tbody>
