@@ -527,9 +527,11 @@ After filtering the data, we ran an AIC metric on all the subsets of the data to
 | R Square:           | 0.008                     | 0.003                                      | 0.112                         | 0.082                        |
 
 |                     |                                |                                   |                          |                           |                            |
-|---------------------|--------------------------------|-----------------------------------|--------------------------|---------------------------|----------------------------|
+|------------|------------|------------|------------|------------|------------|
 | [Data:]{.underline} | [Football Schools]{.underline} | [No Football Schools]{.underline} | [DI Schools]{.underline} | [DII Schools]{.underline} | [DIII Schools]{.underline} |
 | AIC:                | 2484.094                       | 374.648                           | 1167.375                 | 554.459                   | -1.120                     |
 | R Square:           | 0.079                          | 0.025                             | 0.103                    | 0.127                     | 0.039                      |
 
-Without filtering the data at all and not faceting the data by any groups, there is a 0.0028 correlation between the two variables. This shows that it is incredibly low positive correlation.
+Without filtering the data at all and not faceting the data by any groups, there is a 0.008 correlation between the two variables. This shows that it is incredibly low positive correlation. Additionally, There is an AIC of 7723.431. After filtering the data and removing outliers, we see that the AIC decreased, indicating that removing the outliers reduced the variability in the data, and that the data was better fit after removing outliers.
+
+Something about a negative AIC?? Something about low correlation.
