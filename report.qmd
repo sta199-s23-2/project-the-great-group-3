@@ -1,10 +1,9 @@
 ---
-title: "Project title"
-subtitle: "Report"
+title: "The Charity of NCAA Sports"
+authors: "Garrett Spooner, Ishrit Gupta, Salma Schwartzman, Rees Payne"
 format: html
 editor: visual
-execute:
-  echo: true
+echo: false
 ---
 
 ```{r}
@@ -165,11 +164,14 @@ IQR_nofootball_ep <- IQR(eada_nofootball$ratio_mw_ep)
 IQR_nofootball_sa <- IQR(eada_nofootball$ratio_mw_sa)
 
 eada_nofootball <- subset(eada_nofootball, eada_nofootball$ratio_mw_ep>
-                            (Q1_nofootball_ep - 1.5*IQR_nofootball_ep) & eada_nofootball$ratio_mw_ep< 
+                            (Q1_nofootball_ep - 1.5*IQR_nofootball_ep) 
+                          & eada_nofootball$ratio_mw_ep< 
                             (Q3_nofootball_ep + 1.5*IQR_nofootball_ep))
 
 eada_nofootball <- subset(eada_nofootball, eada_nofootball$ratio_mw_sa> 
-                            (Q1_nofootball_sa - 1.5*IQR_nofootball_sa) & eada_nofootball$ratio_mw_sa< (Q3_nofootball_sa + 1.5*IQR_nofootball_sa))
+                            (Q1_nofootball_sa - 1.5*IQR_nofootball_sa) & 
+                            eada_nofootball$ratio_mw_sa< 
+                            (Q3_nofootball_sa + 1.5*IQR_nofootball_sa))
 ```
 
 ```{r}
@@ -224,7 +226,9 @@ eada_divisionI <- subset(eada_divisionI, eada_divisionI$ratio_mw_ep>
                            (Q3_divisionI_ep + 1.5*IQR_divisionI_ep))
 
 eada_divisionI <- subset(eada_divisionI, eada_divisionI$ratio_mw_sa>
-                           (Q1_divisionI_sa - 1.5*IQR_divisionI_sa) & eada_divisionI$ratio_mw_sa< (Q3_divisionI_sa + 1.5*IQR_divisionI_sa))
+                           (Q1_divisionI_sa - 1.5*IQR_divisionI_sa) 
+                         & eada_divisionI$ratio_mw_sa< 
+                           (Q3_divisionI_sa + 1.5*IQR_divisionI_sa))
 ```
 
 ```{r}
@@ -244,10 +248,14 @@ IQR_divisionII_ep <- IQR(eada_divisionII$ratio_mw_ep)
 IQR_divisionII_sa <- IQR(eada_divisionII$ratio_mw_sa)
 
 eada_divisionII <- subset(eada_divisionII, eada_divisionII$ratio_mw_ep> 
-                            (Q1_divisionII_ep - 1.5*IQR_divisionII_ep) & eada_divisionII$ratio_mw_ep< (Q3_divisionII_ep + 1.5*IQR_divisionII_ep))
+                            (Q1_divisionII_ep - 1.5*IQR_divisionII_ep) 
+                          & eada_divisionII$ratio_mw_ep< 
+                            (Q3_divisionII_ep + 1.5*IQR_divisionII_ep))
 
 eada_divisionII <- subset(eada_divisionII, eada_divisionII$ratio_mw_sa> 
-                            (Q1_divisionII_sa - 1.5*IQR_divisionII_sa) & eada_divisionII$ratio_mw_sa< (Q3_divisionII_sa + 1.5*IQR_divisionII_sa))
+                            (Q1_divisionII_sa - 1.5*IQR_divisionII_sa) & 
+                            eada_divisionII$ratio_mw_sa< 
+                            (Q3_divisionII_sa + 1.5*IQR_divisionII_sa))
 ```
 
 ```{r}
@@ -267,10 +275,14 @@ IQR_divisionIII_ep <- IQR(eada_divisionIII$ratio_mw_ep)
 IQR_divisionIII_sa <- IQR(eada_divisionIII$ratio_mw_sa)
 
 eada_divisionIII <- subset(eada_divisionIII, eada_divisionIII$ratio_mw_ep> 
-                             (Q1_divisionIII_ep - 1.5*IQR_divisionIII_ep) & eada_divisionIII$ratio_mw_ep< (Q3_divisionIII_ep + 1.5*IQR_divisionIII_ep))
+                             (Q1_divisionIII_ep - 1.5*IQR_divisionIII_ep) 
+                           & eada_divisionIII$ratio_mw_ep< 
+                             (Q3_divisionIII_ep + 1.5*IQR_divisionIII_ep))
 
 eada_divisionIII <- subset(eada_divisionIII, eada_divisionIII$ratio_mw_sa> 
-                             (Q1_divisionIII_sa - 1.5*IQR_divisionIII_sa) & eada_divisionIII$ratio_mw_sa< (Q3_divisionIII_sa + 1.5*IQR_divisionIII_sa))
+                             (Q1_divisionIII_sa - 1.5*IQR_divisionIII_sa) & 
+                             eada_divisionIII$ratio_mw_sa< 
+                             (Q3_divisionIII_sa + 1.5*IQR_divisionIII_sa))
 ```
 
 ```{r}
@@ -567,4 +579,6 @@ After filtering the data, we ran an AIC metric on all the subsets of the data to
 
 Without filtering the data at all and not faceting the data by any groups, there is a 0.008 correlation between the two variables. This shows that it is incredibly low positive correlation. Additionally, There is an AIC of 7723.431. After filtering the data and removing outliers, we see that the AIC decreased, indicating that removing the outliers reduced the variability in the data, and that the data was better fit after removing outliers.
 
-Something about a negative AIC?? Something about low correlation.
+As shown in the table, the model looking at the relationship in division three between the male to female ratios of athletic student aid and recruitment funds has a negative AIC. This strength of model fit can be explained by the lack of data, given most division three schools cannot give athletic scholarships.
+
+In conclusion, we have found a lack of a relationship between the male to female ratio of student aid and male to female ratio of recruiting expenditures. When filtering for our variables, that is, school type, football, and division, the relationship became slightly stronger, as indicated by higher r squared values and lower AIC scores.
