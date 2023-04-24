@@ -213,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ✖ dplyr::lag()      masks stats::lag()
 ✖ yardstick::spec() masks readr::spec()
 ✖ recipes::step()   masks stats::step()
-• Dig deeper into tidy modeling with R at https://www.tmwr.org</code></pre>
+• Learn how to get started at https://www.tidymodels.org/start/</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -743,9 +743,69 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <p><span class="math inline">\(\hat{ratio\_mw\_ep} = 3.688 -0.651({school\_type}) - 0.829({division\_three}) - .848({division\_two}) - 1.592({no\_football}) + 0.086({ratio\_mw\_sa})\)</span></p>
 <p>Our model predicts that private, division one football schools have the highest ratio of male to female recruitment funds. Further, whether a school has football holds the highest weight as an influencing factor. Further, the model displays that there is a slight positive correlation between a higher male to female student aid ratio and a higher male to female recruitment fund ratio.</p>
 <p><strong>Results</strong></p>
-<p>This prediction model was aimed at testing whether the financial allocation universities spent on athletic scholarship could predict the amount they allocated for recruitment. We filtered the data through three different variables: whether the school had a football program or not, whether the school was public or private, and whether the school was Division I, II, or III.</p>
+<p>This prediction model was aimed at testing whether the financial allocation universities spent on athletic scholarship could predict the amount they allocated for recruitment. We filtered the data through three different variables: whether the school had a football program or not, whether the school was public or private, and whether the school was Division I, II, or III. Notably, many of these groups did not have equal numbers of schools, and division 3 is only 9 schools.</p>
 <p>It is important to note the biases that may have effected the data outcome. Division III schools do not allocate any money towards athletic scholarships. Furthermore, financial capabilities widely vary between public and private schools, as well as, how much income the school makes from their athletic programs.</p>
 <p>After filtering the data, we ran an AIC metric on all the subsets of the data to compare the different regression models. There was a more accurate trend observed in the private vs.&nbsp;public data-set, meaning that model offers the best fit. Amongst all the graphs, there is a low positive correlation observed. Then we ran an R squared test. This would tell us the significance in the correlation between the two variables: scholarship funds versus recruitment funds. The R squared test revealed that there is a very insignificant correlation between the two chosen variables.</p>
+<table class="table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Data:</td>
+<td><u>All Schools</u></td>
+<td><u>All Schools Outliers Removed</u></td>
+<td><u>Private Schools</u></td>
+<td><u>Public Schools</u></td>
+</tr>
+<tr class="even">
+<td>AIC:</td>
+<td>7723.431</td>
+<td>7409.35</td>
+<td>490.849</td>
+<td>869.687</td>
+</tr>
+<tr class="odd">
+<td>R Square:</td>
+<td>0.008</td>
+<td>0.003</td>
+<td>0.112</td>
+<td>0.082</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Data</th>
+<th>Col2</th>
+<th>Col3</th>
+<th>Col4</th>
+<th>Col5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Without filtering the data at all and not faceting the data by any groups, there is a 0.0028 correlation between the two variables. This shows that it is incredibly low positive correlation.</p>
 
 
 

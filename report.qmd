@@ -514,8 +514,21 @@ Our model predicts that private, division one football schools have the highest 
 
 **Results**
 
-This prediction model was aimed at testing whether the financial allocation universities spent on athletic scholarship could predict the amount they allocated for recruitment. We filtered the data through three different variables: whether the school had a football program or not, whether the school was public or private, and whether the school was Division I, II, or III.
+This prediction model was aimed at testing whether the financial allocation universities spent on athletic scholarship could predict the amount they allocated for recruitment. We filtered the data through three different variables: whether the school had a football program or not, whether the school was public or private, and whether the school was Division I, II, or III. Notably, many of these groups did not have equal numbers of schools, and division 3 is only 9 schools.
 
 It is important to note the biases that may have effected the data outcome. Division III schools do not allocate any money towards athletic scholarships. Furthermore, financial capabilities widely vary between public and private schools, as well as, how much income the school makes from their athletic programs.
 
 After filtering the data, we ran an AIC metric on all the subsets of the data to compare the different regression models. There was a more accurate trend observed in the private vs. public data-set, meaning that model offers the best fit. Amongst all the graphs, there is a low positive correlation observed. Then we ran an R squared test. This would tell us the significance in the correlation between the two variables: scholarship funds versus recruitment funds. The R squared test revealed that there is a very insignificant correlation between the two chosen variables.
+
+|           |                           |                                            |                               |                              |
+|---------------|---------------|---------------|---------------|---------------|
+| Data:     | [All Schools]{.underline} | [All Schools Outliers Removed]{.underline} | [Private Schools]{.underline} | [Public Schools]{.underline} |
+| AIC:      | 7723.431                  | 7409.35                                    | 490.849                       | 869.687                      |
+| R Square: | 0.008                     | 0.003                                      | 0.112                         | 0.082                        |
+
+| Data | Col2 | Col3 | Col4 | Col5 |
+|------|------|------|------|------|
+|      |      |      |      |      |
+|      |      |      |      |      |
+
+Without filtering the data at all and not faceting the data by any groups, there is a 0.0028 correlation between the two variables. This shows that it is incredibly low positive correlation.
