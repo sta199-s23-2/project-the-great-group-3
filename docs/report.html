@@ -213,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ✖ dplyr::lag()      masks stats::lag()
 ✖ yardstick::spec() masks readr::spec()
 ✖ recipes::step()   masks stats::step()
-• Learn how to get started at https://www.tidymodels.org/start/</code></pre>
+• Use tidymodels_prefer() to resolve common conflicts.</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -756,7 +756,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 </colgroup>
 <tbody>
 <tr class="odd">
-<td>Data:</td>
+<td><u>Data:</u></td>
 <td><u>All Schools</u></td>
 <td><u>All Schools Outliers Removed</u></td>
 <td><u>Private Schools</u></td>
@@ -779,29 +779,38 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 </tbody>
 </table>
 <table class="table">
-<thead>
-<tr class="header">
-<th>Data</th>
-<th>Col2</th>
-<th>Col3</th>
-<th>Col4</th>
-<th>Col5</th>
-</tr>
-</thead>
+<colgroup>
+<col style="width: 12%">
+<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 16%">
+</colgroup>
 <tbody>
 <tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><u>Data:</u></td>
+<td><u>Football Schools</u></td>
+<td><u>No Football Schools</u></td>
+<td><u>DI Schools</u></td>
+<td><u>DII Schools</u></td>
+<td><u>DIII Schools</u></td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>AIC:</td>
+<td>2484.094</td>
+<td>374.648</td>
+<td>1167.375</td>
+<td>554.459</td>
+<td>-1.120</td>
+</tr>
+<tr class="odd">
+<td>R Square:</td>
+<td>0.079</td>
+<td>0.025</td>
+<td>0.103</td>
+<td>0.127</td>
+<td>0.039</td>
 </tr>
 </tbody>
 </table>
