@@ -1,10 +1,9 @@
 ---
-title: "Project title"
-subtitle: "Report"
+title: "The Charity of NCAA Sports"
+authors: "Garrett Spooner, Ishrit Gupta, Salma Schwartzman, Rees Payne"
 format: html
 editor: visual
-execute:
-  echo: true
+echo: false
 ---
 
 ```{r}
@@ -86,9 +85,13 @@ Q3_NCAA_sa <- quantile(eada_NCAA$ratio_mw_sa, .75)
 IQR_NCAA_ep <- IQR(eada_NCAA$ratio_mw_ep)
 IQR_NCAA_sa <- IQR(eada_NCAA$ratio_mw_sa)
 
-eada_NCAA <- subset(eada_NCAA, eada_NCAA$ratio_mw_ep> (Q1_NCAA_ep - 1.5*IQR_NCAA_ep) & eada_NCAA$ratio_mw_ep< (Q3_NCAA_ep + 1.5*IQR_NCAA_ep))
+eada_NCAA <- subset(eada_NCAA, eada_NCAA$ratio_mw_ep> 
+                      (Q1_NCAA_ep - 1.5*IQR_NCAA_ep) & eada_NCAA$ratio_mw_ep< 
+                      (Q3_NCAA_ep + 1.5*IQR_NCAA_ep))
 
-eada_NCAA <- subset(eada_NCAA, eada_NCAA$ratio_mw_sa> (Q1_NCAA_sa - 1.5*IQR_NCAA_sa) & eada_NCAA$ratio_mw_sa< (Q3_NCAA_sa + 1.5*IQR_NCAA_sa))
+eada_NCAA <- subset(eada_NCAA, eada_NCAA$ratio_mw_sa> 
+                      (Q1_NCAA_sa - 1.5*IQR_NCAA_sa) & eada_NCAA$ratio_mw_sa< 
+                      (Q3_NCAA_sa + 1.5*IQR_NCAA_sa))
 ```
 
 ```{r}
@@ -109,9 +112,13 @@ Q3_priv_sa <- quantile(eada_private$ratio_mw_sa, .75)
 IQR_priv_ep <- IQR(eada_private$ratio_mw_ep)
 IQR_priv_sa <- IQR(eada_private$ratio_mw_sa)
 
-eada_private <- subset(eada_private, eada_private$ratio_mw_ep> (Q1_priv_ep - 1.5*IQR_priv_ep) & eada_private$ratio_mw_ep< (Q3_priv_ep + 1.5*IQR_priv_ep))
+eada_private <- subset(eada_private, eada_private$ratio_mw_ep> 
+                      (Q1_priv_ep - 1.5*IQR_priv_ep) & eada_private$ratio_mw_ep< 
+                      (Q3_priv_ep + 1.5*IQR_priv_ep))
 
-eada_private <- subset(eada_private, eada_private$ratio_mw_sa> (Q1_priv_sa - 1.5*IQR_priv_sa) & eada_private$ratio_mw_sa< (Q3_priv_sa + 1.5*IQR_priv_sa))
+eada_private <- subset(eada_private, eada_private$ratio_mw_sa> 
+                      (Q1_priv_sa - 1.5*IQR_priv_sa) & eada_private$ratio_mw_sa<
+                      (Q3_priv_sa + 1.5*IQR_priv_sa))
 ```
 
 ```{r}
@@ -130,9 +137,13 @@ Q3_public_sa <- quantile(eada_public$ratio_mw_sa, .75)
 IQR_public_ep <- IQR(eada_public$ratio_mw_ep)
 IQR_public_sa <- IQR(eada_public$ratio_mw_sa)
 
-eada_public <- subset(eada_public, eada_public$ratio_mw_ep> (Q1_public_ep - 1.5*IQR_public_ep) & eada_public$ratio_mw_ep< (Q3_public_ep + 1.5*IQR_public_ep))
+eada_public <- subset(eada_public, eada_public$ratio_mw_ep> 
+                  (Q1_public_ep - 1.5*IQR_public_ep) & eada_public$ratio_mw_ep<
+                  (Q3_public_ep + 1.5*IQR_public_ep))
 
-eada_public <- subset(eada_public, eada_public$ratio_mw_sa> (Q1_public_sa - 1.5*IQR_public_sa) & eada_public$ratio_mw_sa< (Q3_public_sa + 1.5*IQR_public_sa))
+eada_public <- subset(eada_public, eada_public$ratio_mw_sa>
+                  (Q1_public_sa - 1.5*IQR_public_sa) & eada_public$ratio_mw_sa<
+                  (Q3_public_sa + 1.5*IQR_public_sa))
 ```
 
 ```{r}
@@ -152,9 +163,15 @@ Q3_nofootball_sa <- quantile(eada_nofootball$ratio_mw_sa, .75)
 IQR_nofootball_ep <- IQR(eada_nofootball$ratio_mw_ep)
 IQR_nofootball_sa <- IQR(eada_nofootball$ratio_mw_sa)
 
-eada_nofootball <- subset(eada_nofootball, eada_nofootball$ratio_mw_ep> (Q1_nofootball_ep - 1.5*IQR_nofootball_ep) & eada_nofootball$ratio_mw_ep< (Q3_nofootball_ep + 1.5*IQR_nofootball_ep))
+eada_nofootball <- subset(eada_nofootball, eada_nofootball$ratio_mw_ep>
+                            (Q1_nofootball_ep - 1.5*IQR_nofootball_ep) 
+                          & eada_nofootball$ratio_mw_ep< 
+                            (Q3_nofootball_ep + 1.5*IQR_nofootball_ep))
 
-eada_nofootball <- subset(eada_nofootball, eada_nofootball$ratio_mw_sa> (Q1_nofootball_sa - 1.5*IQR_nofootball_sa) & eada_nofootball$ratio_mw_sa< (Q3_nofootball_sa + 1.5*IQR_nofootball_sa))
+eada_nofootball <- subset(eada_nofootball, eada_nofootball$ratio_mw_sa> 
+                            (Q1_nofootball_sa - 1.5*IQR_nofootball_sa) & 
+                            eada_nofootball$ratio_mw_sa< 
+                            (Q3_nofootball_sa + 1.5*IQR_nofootball_sa))
 ```
 
 ```{r}
@@ -174,9 +191,15 @@ Q3_football_sa <- quantile(eada_football$ratio_mw_sa, .75)
 IQR_football_ep <- IQR(eada_football$ratio_mw_ep)
 IQR_football_sa <- IQR(eada_football$ratio_mw_sa)
 
-eada_football <- subset(eada_football, eada_football$ratio_mw_ep> (Q1_football_ep - 1.5*IQR_football_ep) & eada_football$ratio_mw_ep< (Q3_football_ep + 1.5*IQR_football_ep))
+eada_football <- subset(eada_football, eada_football$ratio_mw_ep>
+                          (Q1_football_ep - 1.5*IQR_football_ep) 
+                        & eada_football$ratio_mw_ep< 
+                          (Q3_football_ep + 1.5*IQR_football_ep))
 
-eada_football <- subset(eada_football, eada_football$ratio_mw_sa> (Q1_football_sa - 1.5*IQR_football_sa) & eada_football$ratio_mw_sa< (Q3_football_sa + 1.5*IQR_football_sa))
+eada_football <- subset(eada_football, eada_football$ratio_mw_sa> 
+                          (Q1_football_sa - 1.5*IQR_football_sa) 
+                        & eada_football$ratio_mw_sa< 
+                          (Q3_football_sa + 1.5*IQR_football_sa))
 ```
 
 ```{r}
@@ -197,9 +220,15 @@ Q3_divisionI_sa <- quantile(eada_divisionI$ratio_mw_sa, .75)
 IQR_divisionI_ep <- IQR(eada_divisionI$ratio_mw_ep)
 IQR_divisionI_sa <- IQR(eada_divisionI$ratio_mw_sa)
 
-eada_divisionI <- subset(eada_divisionI, eada_divisionI$ratio_mw_ep> (Q1_divisionI_ep - 1.5*IQR_divisionI_ep) & eada_divisionI$ratio_mw_ep< (Q3_divisionI_ep + 1.5*IQR_divisionI_ep))
+eada_divisionI <- subset(eada_divisionI, eada_divisionI$ratio_mw_ep>
+                           (Q1_divisionI_ep - 1.5*IQR_divisionI_ep) &
+                           eada_divisionI$ratio_mw_ep< 
+                           (Q3_divisionI_ep + 1.5*IQR_divisionI_ep))
 
-eada_divisionI <- subset(eada_divisionI, eada_divisionI$ratio_mw_sa> (Q1_divisionI_sa - 1.5*IQR_divisionI_sa) & eada_divisionI$ratio_mw_sa< (Q3_divisionI_sa + 1.5*IQR_divisionI_sa))
+eada_divisionI <- subset(eada_divisionI, eada_divisionI$ratio_mw_sa>
+                           (Q1_divisionI_sa - 1.5*IQR_divisionI_sa) 
+                         & eada_divisionI$ratio_mw_sa< 
+                           (Q3_divisionI_sa + 1.5*IQR_divisionI_sa))
 ```
 
 ```{r}
@@ -218,9 +247,15 @@ Q3_divisionII_sa <- quantile(eada_divisionII$ratio_mw_sa, .75)
 IQR_divisionII_ep <- IQR(eada_divisionII$ratio_mw_ep)
 IQR_divisionII_sa <- IQR(eada_divisionII$ratio_mw_sa)
 
-eada_divisionII <- subset(eada_divisionII, eada_divisionII$ratio_mw_ep> (Q1_divisionII_ep - 1.5*IQR_divisionII_ep) & eada_divisionII$ratio_mw_ep< (Q3_divisionII_ep + 1.5*IQR_divisionII_ep))
+eada_divisionII <- subset(eada_divisionII, eada_divisionII$ratio_mw_ep> 
+                            (Q1_divisionII_ep - 1.5*IQR_divisionII_ep) 
+                          & eada_divisionII$ratio_mw_ep< 
+                            (Q3_divisionII_ep + 1.5*IQR_divisionII_ep))
 
-eada_divisionII <- subset(eada_divisionII, eada_divisionII$ratio_mw_sa> (Q1_divisionII_sa - 1.5*IQR_divisionII_sa) & eada_divisionII$ratio_mw_sa< (Q3_divisionII_sa + 1.5*IQR_divisionII_sa))
+eada_divisionII <- subset(eada_divisionII, eada_divisionII$ratio_mw_sa> 
+                            (Q1_divisionII_sa - 1.5*IQR_divisionII_sa) & 
+                            eada_divisionII$ratio_mw_sa< 
+                            (Q3_divisionII_sa + 1.5*IQR_divisionII_sa))
 ```
 
 ```{r}
@@ -239,9 +274,15 @@ Q3_divisionIII_sa <- quantile(eada_divisionIII$ratio_mw_sa, .75)
 IQR_divisionIII_ep <- IQR(eada_divisionIII$ratio_mw_ep)
 IQR_divisionIII_sa <- IQR(eada_divisionIII$ratio_mw_sa)
 
-eada_divisionIII <- subset(eada_divisionIII, eada_divisionIII$ratio_mw_ep> (Q1_divisionIII_ep - 1.5*IQR_divisionIII_ep) & eada_divisionIII$ratio_mw_ep< (Q3_divisionIII_ep + 1.5*IQR_divisionIII_ep))
+eada_divisionIII <- subset(eada_divisionIII, eada_divisionIII$ratio_mw_ep> 
+                             (Q1_divisionIII_ep - 1.5*IQR_divisionIII_ep) 
+                           & eada_divisionIII$ratio_mw_ep< 
+                             (Q3_divisionIII_ep + 1.5*IQR_divisionIII_ep))
 
-eada_divisionIII <- subset(eada_divisionIII, eada_divisionIII$ratio_mw_sa> (Q1_divisionIII_sa - 1.5*IQR_divisionIII_sa) & eada_divisionIII$ratio_mw_sa< (Q3_divisionIII_sa + 1.5*IQR_divisionIII_sa))
+eada_divisionIII <- subset(eada_divisionIII, eada_divisionIII$ratio_mw_sa> 
+                             (Q1_divisionIII_sa - 1.5*IQR_divisionIII_sa) & 
+                             eada_divisionIII$ratio_mw_sa< 
+                             (Q3_divisionIII_sa + 1.5*IQR_divisionIII_sa))
 ```
 
 ```{r}
@@ -257,7 +298,7 @@ eada |>
   labs(x = "Ratio of Student Aid of Men to Women", 
        y = "Ratio of Recruiting Expenditures of Men to Women",
        title = "Relationship between Student Aid and Recruting Expenditures",
-       subtitle = "Ratios of Men to Women")
+       subtitle = "Ratios of Men to Women") + scale_color_viridis_b()
 ```
 
 ```{r}
@@ -282,9 +323,13 @@ Q3_no_outs_sa <- quantile(eada$ratio_mw_sa, .75)
 IQR_no_outs_ep <- IQR(eada$ratio_mw_ep)
 IQR_no_outs_sa <- IQR(eada$ratio_mw_sa)
 
-eada_no_outs <- subset(eada, eada$ratio_mw_ep> (Q1_no_outs_ep - 1.5*IQR_no_outs_ep) & eada$ratio_mw_ep< (Q3_no_outs_ep + 1.5*IQR_no_outs_ep))
+eada_no_outs <- subset(eada, eada$ratio_mw_ep>
+                         (Q1_no_outs_ep - 1.5*IQR_no_outs_ep) 
+                       & eada$ratio_mw_ep< (Q3_no_outs_ep + 1.5*IQR_no_outs_ep))
 
-eada_no_outs <- subset(eada, eada$ratio_mw_sa> (Q1_no_outs_sa - 1.5*IQR_no_outs_sa) & eada$ratio_mw_sa< (Q3_no_outs_sa + 1.5*IQR_no_outs_sa))
+eada_no_outs <- subset(eada, eada$ratio_mw_sa> 
+                      (Q1_no_outs_sa - 1.5*IQR_no_outs_sa) & eada$ratio_mw_sa< 
+                        (Q3_no_outs_sa + 1.5*IQR_no_outs_sa))
 
 eada_no_outs |>
   ggplot(
@@ -294,7 +339,7 @@ eada_no_outs |>
   labs(x = "Ratio of Student Aid of Men to Women", 
        y = "Ratio of Recruiting Expenditures of Men to Women",
        title = "Relationship between Student Aid and Recruting Expenditures",
-       subtitle = "Outliers taken out")
+       subtitle = "Outliers taken out") + scale_color_viridis_b()
 
 ```
 
@@ -319,7 +364,7 @@ eada_private |>
    labs(x = "Ratio of Student Aid of Men to Women", 
        y = "Ratio of Recruiting Expenditures of Men to Women",
        title = "Relationship between Student Aid and Recruting Expenditures",
-       subtitle = "Private Schools")
+       subtitle = "Private Schools") + scale_color_viridis_b()
 
 ```
 
@@ -343,7 +388,7 @@ eada_public |>
  labs(x = "Ratio of Student Aid of Men to Women", 
        y = "Ratio of Recruiting Expenditures of Men to Women",
        title = "Relationship between Student Aid and Recruting Expenditures",
-       subtitle = "Public Schools")
+       subtitle = "Public Schools") + scale_color_viridis_b()
 ```
 
 ```{r}
@@ -367,7 +412,7 @@ eada_football |>
    labs(x = "Ratio of Student Aid of Men to Women", 
        y = "Ratio of Recruiting Expenditures of Men to Women",
        title = "Relationship between Student Aid and Recruting Expenditures",
-       subtitle = "Schools with football")
+       subtitle = "Schools with football")+ scale_color_viridis_b()
 ```
 
 ```{r}
@@ -390,7 +435,7 @@ eada_nofootball |>
    labs(x = "Ratio of Student Aid of Men to Women", 
        y = "Ratio of Recruiting Expenditures of Men to Women",
        title = "Relationship between Student Aid and Recruting Expenditures",
-       subtitle = "Schools with no football")
+       subtitle = "Schools with no football") + scale_color_viridis_b()
 ```
 
 ```{r}
@@ -414,7 +459,7 @@ eada_divisionI |>
    labs(x = "Ratio of Student Aid of Men to Women", 
        y = "Ratio of Recruiting Expenditures of Men to Women",
        title = "Relationship between Student Aid and Recruting Expenditures",
-       subtitle = "Division I schools")
+       subtitle = "Division I schools") + scale_color_viridis_b()
 ```
 
 ```{r}
@@ -436,7 +481,7 @@ eada_divisionII |>
    labs(x = "Ratio of Student Aid of Men to Women", 
        y = "Ratio of Recruiting Expenditures of Men to Women",
        title = "Relationship between Student Aid and Recruting Expenditures",
-       subtitle = "Division II schools")
+       subtitle = "Division II schools") + scale_color_viridis_b()
 ```
 
 ```{r}
@@ -458,7 +503,7 @@ eada_divisionIII |>
    labs(x = "Ratio of Student Aid of Men to Women", 
        y = "Ratio of Recruiting Expenditures of Men to Women",
        title = "Relationship between Student Aid and Recruting Expenditures",
-       subtitle = "Division III schools")
+       subtitle = "Division III schools") + scale_color_viridis_b()
 
 ```
 
@@ -521,7 +566,7 @@ It is important to note the biases that may have effected the data outcome. Divi
 After filtering the data, we ran an AIC metric on all the subsets of the data to compare the different regression models. There was a more accurate trend observed in the private vs. public data-set, meaning that model offers the best fit. Amongst all the graphs, there is a low positive correlation observed. Then we ran an R squared test. This would tell us the significance in the correlation between the two variables: scholarship funds versus recruitment funds. The R squared test revealed that there is a very insignificant correlation between the two chosen variables.
 
 |                     |                           |                                            |                               |                              |
-|--------------|--------------|-----------------|--------------|--------------|
+|---------------|---------------|---------------|---------------|---------------|
 | [Data:]{.underline} | [All Schools]{.underline} | [All Schools Outliers Removed]{.underline} | [Private Schools]{.underline} | [Public Schools]{.underline} |
 | AIC:                | 7723.431                  | 7409.35                                    | 490.849                       | 869.687                      |
 | R Square:           | 0.008                     | 0.003                                      | 0.112                         | 0.082                        |
@@ -534,4 +579,6 @@ After filtering the data, we ran an AIC metric on all the subsets of the data to
 
 Without filtering the data at all and not faceting the data by any groups, there is a 0.008 correlation between the two variables. This shows that it is incredibly low positive correlation. Additionally, There is an AIC of 7723.431. After filtering the data and removing outliers, we see that the AIC decreased, indicating that removing the outliers reduced the variability in the data, and that the data was better fit after removing outliers.
 
-Something about a negative AIC?? Something about low correlation.
+As shown in the table, the model looking at the relationship in division three between the male to female ratios of athletic student aid and recruitment funds has a negative AIC. This strength of model fit can be explained by the lack of data, given most division three schools cannot give athletic scholarships.
+
+In conclusion, we have found a lack of a relationship between the male to female ratio of student aid and male to female ratio of recruiting expenditures. When filtering for our variables, that is, school type, football, and division, the relationship became slightly stronger, as indicated by higher r squared values and lower AIC scores.
