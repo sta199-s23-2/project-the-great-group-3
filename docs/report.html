@@ -153,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
 ✖ dplyr::lag()      masks stats::lag()
 ✖ yardstick::spec() masks readr::spec()
 ✖ recipes::step()   masks stats::step()
-• Learn how to get started at https://www.tidymodels.org/start/</code></pre>
+• Dig deeper into tidy modeling with R at https://www.tmwr.org</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -239,6 +239,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <p><img src="report_files/figure-html/main-visualization-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Below are the AIC and r-squared values of the linear regression model.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>0.0076810675527727 
@@ -254,6 +255,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <p><img src="report_files/figure-html/viz-no-outs-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Below are the AIC and r-squared values of the linear regression model.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>0.00281077907311822 
@@ -261,8 +263,10 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 </div>
 </div>
 <p>Given the low r-squared value of our linear regression model fitting the two ratios, we decided to test a hypothesis that there is a higher average male to female ratio of recruiting expenditures than male to female ratio of student aid.</p>
+<p>To execute the hypothesis test, we can use a CLT hypothesis test for difference in means as both groups have over 30 observations and sampling is independent. The null and alternative hypotheses are below.</p>
 <p><span class="math inline">\(H_{O}: \mu_{Recruiting} = \mu_{StudentAid}\)</span></p>
 <p><span class="math inline">\(H_{A}: \mu_{Recruiting} &gt; \mu_{StudentAid}\)</span></p>
+<p>To start, we must calculate our sample means.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>   mean_ep
@@ -312,6 +316,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <p><img src="report_files/figure-html/viz-priv-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Below are the AIC and r-squared values of the linear regression model.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>0.112223105145674 
@@ -326,6 +331,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <p><img src="report_files/figure-html/viz-public-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Below are the AIC and r-squared values of the linear regression model.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>0.0818346252647914 
@@ -341,6 +347,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <p><img src="report_files/figure-html/viz-football-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Below are the AIC and r-squared values of the linear regression model.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>0.0786090754011517 
@@ -355,6 +362,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <p><img src="report_files/figure-html/viz-no-football-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Below are the AIC and r-squared values of the linear regression model.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>0.0251744256907911 
@@ -370,6 +378,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <p><img src="report_files/figure-html/viz-d1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Below are the AIC and r-squared values of the linear regression model.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>0.103162960388741 
@@ -384,6 +393,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <p><img src="report_files/figure-html/viz-d2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Below are the AIC and r-squared values of the linear regression model.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>0.126985443525168 
@@ -398,6 +408,7 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <p><img src="report_files/figure-html/viz-d3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Below are the AIC and r-squared values of the linear regression model.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>0.0389448055922119 
@@ -414,7 +425,9 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <p><span class="math inline">\(\hat{ratio\_mw\_ep} = 3.688 -0.651({school\_type}) - 0.829({division\_three}) - .848({division\_two}) - 1.592({no\_football}) + 0.086({ratio\_mw\_sa})\)</span></p>
 <p>Our model predicts that private, division one football schools have the highest ratio of male to female recruitment funds. Further, whether a school has football holds the highest weight as an influencing factor. Further, the model displays that there is a slight positive correlation between a higher male to female student aid ratio and a higher male to female recruitment fund ratio.</p>
 <p><strong>Results</strong></p>
-<p>This prediction model was aimed at testing whether the financial allocation universities spent on athletic scholarship could predict the amount they allocated for recruitment, and whether the distribution between men and womens’ sports was equitable. We filtered the data through three different variables: whether the school had a football program or not, whether the school was public or private, and whether the school was Division I, II, or III. Notably, many of these groups did not have equal numbers of schools, and division 3 is only 9 schools.</p>
+<p>This prediction model was aimed at testing whether the financial allocation universities spent on athletic scholarship could predict the amount they allocated for recruitment, and whether the distribution between men and womens’ sports was equitable.</p>
+<p>Initially, we ran a hypothesis test for the difference in mean male to female ratios of student aid from recruiting expenditures. As a result of our p-value of ~0, we can reject our null hypothesis that there is no difference in true male to female ratio of recruiting expenditures than male to female ratio of student aid.</p>
+<p>We filtered the data through three different variables: whether the school had a football program or not, whether the school was public or private, and whether the school was Division I, II, or III. Notably, many of these groups did not have equal numbers of schools, and division 3 is only 9 schools.</p>
 <p>After filtering the data, we ran an AIC metric on all the subsets of the data to compare the different regression models. There was a more accurate trend observed in the private vs.&nbsp;public data-set, meaning that model offers the best fit. Amongst all the graphs, there is a low positive correlation observed. Then we ran an R squared test. This would tell us the significance in the correlation between the two variables: scholarship funds versus recruitment funds. The R squared test revealed that there is a very insignificant correlation between the two chosen variables.</p>
 <table class="table">
 <colgroup>

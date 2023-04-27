@@ -301,6 +301,8 @@ eada |>
        subtitle = "Ratios of Men to Women") + scale_color_viridis_b()
 ```
 
+Below are the AIC and r-squared values of the linear regression model.
+
 ```{r}
 #| label: AIC-main
 linear_reg() |>
@@ -343,6 +345,8 @@ eada_no_outs |>
 
 ```
 
+Below are the AIC and r-squared values of the linear regression model.
+
 ```{r}
 #| label: aic-no-outs
 linear_reg() |>
@@ -354,9 +358,13 @@ linear_reg() |>
 
 Given the low r-squared value of our linear regression model fitting the two ratios, we decided to test a hypothesis that there is a higher average male to female ratio of recruiting expenditures than male to female ratio of student aid.
 
+To execute the hypothesis test, we can use a CLT hypothesis test for difference in means as both groups have over 30 observations and sampling is independent. The null and alternative hypotheses are below.
+
 $H_{O}: \mu_{Recruiting} = \mu_{StudentAid}$
 
 $H_{A}: \mu_{Recruiting} > \mu_{StudentAid}$
+
+To start, we must calculate our sample means.
 
 ```{r}
 #| label: hypothesis-test-no-outs
@@ -420,6 +428,8 @@ eada_private |>
 
 ```
 
+Below are the AIC and r-squared values of the linear regression model.
+
 ```{r}
 #| label: AIC-priv
 linear_reg() |>
@@ -442,6 +452,8 @@ eada_public |>
        title = "Relationship between Student Aid and Recruting Expenditures",
        subtitle = "Public Schools") + scale_color_viridis_b()
 ```
+
+Below are the AIC and r-squared values of the linear regression model.
 
 ```{r}
 #| label: AIC-public
@@ -467,6 +479,8 @@ eada_football |>
        subtitle = "Schools with football")+ scale_color_viridis_b()
 ```
 
+Below are the AIC and r-squared values of the linear regression model.
+
 ```{r}
 #| label: AIC-football
 linear_reg() |>
@@ -489,6 +503,8 @@ eada_nofootball |>
        title = "Relationship between Student Aid and Recruting Expenditures",
        subtitle = "Schools with no football") + scale_color_viridis_b()
 ```
+
+Below are the AIC and r-squared values of the linear regression model.
 
 ```{r}
 #| label: AIC-no-football
@@ -514,6 +530,8 @@ eada_divisionI |>
        subtitle = "Division I schools") + scale_color_viridis_b()
 ```
 
+Below are the AIC and r-squared values of the linear regression model.
+
 ```{r}
 #| label: AIC-d1
 linear_reg() |>
@@ -535,6 +553,8 @@ eada_divisionII |>
        title = "Relationship between Student Aid and Recruting Expenditures",
        subtitle = "Division II schools") + scale_color_viridis_b()
 ```
+
+Below are the AIC and r-squared values of the linear regression model.
 
 ```{r}
 #| label: AIC-d2
@@ -558,6 +578,8 @@ eada_divisionIII |>
        subtitle = "Division III schools") + scale_color_viridis_b()
 
 ```
+
+Below are the AIC and r-squared values of the linear regression model.
 
 ```{r}
 #| label: AIC-d3
@@ -611,7 +633,11 @@ Our model predicts that private, division one football schools have the highest 
 
 **Results**
 
-This prediction model was aimed at testing whether the financial allocation universities spent on athletic scholarship could predict the amount they allocated for recruitment, and whether the distribution between men and womens' sports was equitable. We filtered the data through three different variables: whether the school had a football program or not, whether the school was public or private, and whether the school was Division I, II, or III. Notably, many of these groups did not have equal numbers of schools, and division 3 is only 9 schools.
+This prediction model was aimed at testing whether the financial allocation universities spent on athletic scholarship could predict the amount they allocated for recruitment, and whether the distribution between men and womens' sports was equitable.
+
+Initially, we ran a hypothesis test for the difference in mean male to female ratios of student aid from recruiting expenditures. As a result of our p-value of \~0, we can reject our null hypothesis that there is no difference in true male to female ratio of recruiting expenditures than male to female ratio of student aid.
+
+We filtered the data through three different variables: whether the school had a football program or not, whether the school was public or private, and whether the school was Division I, II, or III. Notably, many of these groups did not have equal numbers of schools, and division 3 is only 9 schools.
 
 After filtering the data, we ran an AIC metric on all the subsets of the data to compare the different regression models. There was a more accurate trend observed in the private vs. public data-set, meaning that model offers the best fit. Amongst all the graphs, there is a low positive correlation observed. Then we ran an R squared test. This would tell us the significance in the correlation between the two variables: scholarship funds versus recruitment funds. The R squared test revealed that there is a very insignificant correlation between the two chosen variables.
 
