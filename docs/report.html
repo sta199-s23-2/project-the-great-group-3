@@ -153,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
 ✖ dplyr::lag()      masks stats::lag()
 ✖ yardstick::spec() masks readr::spec()
 ✖ recipes::step()   masks stats::step()
-• Use suppressPackageStartupMessages() to eliminate package startup messages</code></pre>
+• Learn how to get started at https://www.tidymodels.org/start/</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -260,6 +260,49 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
             7409.35 </code></pre>
 </div>
 </div>
+<p>Given the low r-squared value of our linear regression model fitting the two ratios, we decided to test a hypothesis that there is a higher average male to female ratio of recruiting expenditures than male to female ratio of student aid.</p>
+<p><span class="math inline">\(H_{O}: \mu_{Recruiting} = \mu_{StudentAid}\)</span></p>
+<p><span class="math inline">\(H_{A}: \mu_{Recruiting} &gt; \mu_{StudentAid}\)</span></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>   mean_ep
+1 2.423911</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   mean_sa
+1 1.206673</code></pre>
+</div>
+</div>
+<p><span class="math inline">\(\bar{X_{diff}} = \bar{X_{Recruiting}} - \bar{X_{StudentAid}}\)</span></p>
+<p><span class="math inline">\(\bar{X_{Recruiting}}\)</span> = 2.324 - 1.207</p>
+<p><span class="math inline">\(\bar{X_{Recruiting}}\)</span> = 1.117</p>
+<p>With our difference in sample means, we carried out a bootstrapping hypothesis test below.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1038</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>     sd_ep
+1 8.577236</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     sd_sa
+1 0.405866</code></pre>
+</div>
+</div>
+<p>Standard deviation = Sqrt((((8.577)<sup>2</sup>) / 1038)) + (((0.406)<sup>2</sup>) / 1038))) = 0.267</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.183521</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.435145e-05</code></pre>
+</div>
+</div>
+<p>With a t-score of 4.184 at a significance level ($\alpha$) of 0.05, we reject the null hypothesis that there is no difference in true male to female ratio of recruiting expenditures than male to female ratio of student aid as our p-value of ~0 &lt; our <span class="math inline">\(\alpha\)</span> of 0.05. There is enough evidence to suggest that there is a positive difference in male to female ratio of student aid subtracted from male to female ratio of recruiting expenditures.</p>
+<p>The probability of observing our statistic of 1.117 or something more extreme, given there is no difference in male to female ratio of student aid from male to female ratio of recruiting expenditures, is approximately 0.</p>
 <p>Private vs.&nbsp;public schools have two very different financial structures, so we thought there may be a tangible difference in how the two ratios relate to each other. Below, we fit a linear model and calculated the AIC and r squared for each.</p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
@@ -375,11 +418,11 @@ $ ratio_mw_ep         &lt;dbl&gt; 1.1985337, 2.4287042, 1.3413262, 1.3052437, 6.
 <p>After filtering the data, we ran an AIC metric on all the subsets of the data to compare the different regression models. There was a more accurate trend observed in the private vs.&nbsp;public data-set, meaning that model offers the best fit. Amongst all the graphs, there is a low positive correlation observed. Then we ran an R squared test. This would tell us the significance in the correlation between the two variables: scholarship funds versus recruitment funds. The R squared test revealed that there is a very insignificant correlation between the two chosen variables.</p>
 <table class="table">
 <colgroup>
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 23%">
-<col style="width: 19%">
-<col style="width: 19%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <tbody>
 <tr class="odd">

@@ -352,6 +352,58 @@ linear_reg() |>
   pull(AIC, r.squared)
 ```
 
+Given the low r-squared value of our linear regression model fitting the two ratios, we decided to test a hypothesis that there is a higher average male to female ratio of recruiting expenditures than male to female ratio of student aid.
+
+$H_{O}: \mu_{Recruiting} = \mu_{StudentAid}$
+
+$H_{A}: \mu_{Recruiting} > \mu_{StudentAid}$
+
+```{r}
+#| label: hypothesis-test-no-outs
+eada_no_outs |>
+summarize(mean_ep = mean(ratio_mw_ep))
+
+eada_no_outs |>
+summarize(mean_sa = mean(ratio_mw_sa))
+
+```
+
+$\bar{X_{diff}} = \bar{X_{Recruiting}} - \bar{X_{StudentAid}}$
+
+$\bar{X_{Recruiting}}$ = 2.324 - 1.207
+
+$\bar{X_{Recruiting}}$ = 1.117
+
+With our difference in sample means, we carried out a bootstrapping hypothesis test below.
+
+```{r}
+#| label: test-nrow
+eada_no_outs |>
+  nrow()
+```
+
+```{r}
+#| label: test-sd
+eada_no_outs |>
+  summarize(sd_ep = sd(ratio_mw_ep))
+
+eada_no_outs |>
+  summarize(sd_sa = sd(ratio_mw_sa))
+```
+
+Standard deviation = Sqrt((((8.577)^2^) / 1038)) + (((0.406)^2^) / 1038))) = 0.267
+
+```{r}
+#| label: test-t-score
+t_score <- (1.117 - 0) / 0.267
+t_score
+pnorm(t_score, lower.tail = F)
+```
+
+With a t-score of 4.184 at a significance level (\$\\alpha\$) of 0.05, we reject the null hypothesis that there is no difference in true male to female ratio of recruiting expenditures than male to female ratio of student aid as our p-value of \~0 \< our $\alpha$ of 0.05. There is enough evidence to suggest that there is a positive difference in male to female ratio of student aid subtracted from male to female ratio of recruiting expenditures.
+
+The probability of observing our statistic of 1.117 or something more extreme, given there is no difference in male to female ratio of student aid from male to female ratio of recruiting expenditures, is approximately 0.
+
 Private vs. public schools have two very different financial structures, so we thought there may be a tangible difference in how the two ratios relate to each other. Below, we fit a linear model and calculated the AIC and r squared for each.
 
 ```{r}
@@ -564,7 +616,7 @@ This prediction model was aimed at testing whether the financial allocation univ
 After filtering the data, we ran an AIC metric on all the subsets of the data to compare the different regression models. There was a more accurate trend observed in the private vs. public data-set, meaning that model offers the best fit. Amongst all the graphs, there is a low positive correlation observed. Then we ran an R squared test. This would tell us the significance in the correlation between the two variables: scholarship funds versus recruitment funds. The R squared test revealed that there is a very insignificant correlation between the two chosen variables.
 
 |                     |                           |                                            |                               |                              |
-|--------------|--------------|-----------------|--------------|--------------|
+|---------------|---------------|---------------|---------------|---------------|
 | [Data:]{.underline} | [All Schools]{.underline} | [All Schools Outliers Removed]{.underline} | [Private Schools]{.underline} | [Public Schools]{.underline} |
 | AIC:                | 7723.431                  | 7409.35                                    | 490.849                       | 869.687                      |
 | R Square:           | 0.008                     | 0.003                                      | 0.112                         | 0.082                        |
