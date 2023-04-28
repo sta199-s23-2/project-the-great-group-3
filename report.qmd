@@ -37,19 +37,19 @@ glimpse(eada)
 
 **Context**
 
-Duke University is intrinsically connected to its sports program. Most famously known for their Men's Division 1 Basketball and Football teams, as of 2020, Duke makes an estimated \$33,382,946 and \$39,669,829 in revenue, respectively (Laster, Jordan, et al. "The Haves and the Have-Nots: Inequities Amongst Duke University's Sports Teams." The Haves and the Have-Nots: Inequities Amongst Duke University's Sports Teams \| Black In Blue, 2020, https://blackinblue.trinity.duke.edu/haves-and-have-nots-inequities-amongst-duke-universitys-sports-teams.). Furthermore, Duke spends approximately \$1,329,949 per Men's basketball player and \$217,047 per football player (Ibid.). Duke's 2020 Equity in Athletics Disclosure Act (EADA) revealed that Duke spent a total of \$57,114,331 on men's sports teams and a total of \$25,472,405 on women's sports teams (Ibid.) This figure includes recruitment cost, amongst other things. Nationwide, there is a recorded inequity between NCAA sports (Meredith, L. (2017, June 21). NCAA Title IX Report: Spending up, gender gaps remain. The Seattle Times. https://www.seattletimes.com/sports/ncaa-title-ix-report-spending-up-gender-gaps-remain/). As Duke students, we were curious: is this the status quo in collegiate athletics?
+Duke University is intrinsically connected to its sports program. Most famously known for their men's division one basketball and football teams, as of 2020, Duke makes an estimated \$33,382,946 and \$39,669,829 in revenue, respectively (Laster, Jordan, et al.). Furthermore, Duke spends approximately \$1,329,949 per men's basketball player and \$217,047 per football player (Ibid.). Duke's 2020 Equity in Athletics Disclosure Act (EADA) revealed that Duke spent a total of \$57,114,331 on men's sports teams and a total of \$25,472,405 on women's sports teams (Ibid.) This figure includes recruitment cost, amongst other things. Futher, there is a recorded nationwide gender inequity between NCAA sports (Meredith, L.). As Duke students, we were curious: is this the status quo in collegiate athletics?
 
-**The Dataset**
+**The Data Set**
 
-The dataset we use to explore this topic comes from the U.S. Department of Education's Equity in Athletics Disclosure Act, which requires many schools to provide information regarding financial expenditure and revenue generation of their athletics departments. The dataset spans 4274 variables, including school names, locations, and cost breakdowns. There are 1844 observations in this dataset; each observation is a different school. The most recently published dataset is from 2021, which is the dataset we use.
+The data set we use to explore this topic comes from the U.S. Department of Education's Equity in Athletics Disclosure Act, which requires many schools to provide information regarding financial expenditure and revenue generation of their athletics departments. The data set spans 4274 variables, including school names, locations, and cost breakdowns. There are 1844 observations in this data set; each observation is a different school. The most recently published data set is from 2021, which is the data set that we used.
 
 **Explanation of Topic**
 
-Our topic will specifically observe and investigate how much, on average, universities spend on men and womens' recruitment funds. We will create a model that predicts this figure, based on university's current expenditure on athletic scholarships for student athletes. We will break down a number of variables within the data, looking at whether the institution is public versus private, has a football program or not, and what athletic division it falls under (I, II, or III) The reason we chose these variables are as follows: (1) the monetary means of public institutions have a wide range -- larger and older private schools often having more means, while samller private schools and public schools having less; (2) through the research for our literature review, it was found that the largest spending gap on sports occurred in schools that had a football program versus schools without a football program, schools with football often spending over \$5 million more on sports programs; (3) division matters a great deal when considering expenditure on sports, with division I schools often allocating far more than division II and III (Desrochers, D. M. (2013, January). *Academic spending vs. athletic spending: Who wins?* . Delta Cost Project. Retrieved from https://www.air.org/sites/default/files/downloads/ report/Academic-Spending-vs-Athletic-Spending.pdf). Our research question is: To what extent can the ratio of male to female athletic scholarships predict the male to female ratio of recruitment funds? We hypothesize that the ratio will, to a high degree, predict the recruitment funding --- as schools who allocate more money into students' financial aid will be willing to designate more money for their recruitment.
+Our topic will specifically observe and investigate how much, on average, universities spend on men and womens' recruitment funds. We will create a model that predicts this figure, based on university's current expenditure on athletic scholarships for student athletes. We will break down a number of variables within the data, looking at whether the institution is public versus private, has a football program or not, and what athletic division it falls under (I, II, or III). The reason we chose these variables are as follows: (1) the monetary means of public institutions have a wide range -- larger and older private schools often having more means, while smaller private schools and public schools having less; (2) through the research for our literature review, it was found that the largest spending gap on sports occurred in schools that had a football program versus schools without a football program, schools with football often spending over \$5 million more on sports programs; (3) division matters a great deal when considering expenditure on sports, with division I schools often allocating far more than division II and III (Desrochers, D. M.). Our research question is: To what extent can the ratio of male to female athletic scholarships predict the male to female ratio of recruitment funds? We hypothesize that the ratio will, to a high degree, predict the ratio of recruitment funding --- as schools who allocate more money into male students' financial aid will be willing to designate more money for their recruitment.
 
 **Ethical Issues**
 
-There are very few ethical issues anticipated with this investigation. However, it is important to note that source biases are a likely phenomenon. We must be careful with many self-reported information from university sites, and assuring that the data published can be verified. An additional bias concern is disproportionately represented data. The data could represent certain regions or types of schools, which could skew the results. Transparency of the data is also an ethical concern to note. It is important that the data is transparently presented, and that the methods used to analyze the data are clearly explained. This will help ensure that the findings are trustworthy and can be used for the intended purpose. Lastly, the accuracy of the data is a possible ethical issue. It is possible that the data in the dataset is inaccurate or incomplete, which could lead to incorrect conclusions or decisions being made based on the data. These are the possible ethical issues that have been noted in the investigation.
+There are very few ethical issues anticipated with this investigation. However, it is important to note that source biases are a likely phenomenon. We must be careful with many self-reported information from university sites, and assuring that the data published can be verified. An additional bias concern is disproportionately represented data. The data could represent certain regions or types of schools, which could skew the results. Transparency of the data is also an ethical concern to note. It is important that the data is transparently presented, and that the methods used to analyze the data are clearly explained. This will help ensure that the findings are trustworthy and can be used for the intended purpose. Lastly, the accuracy of the data is a possible ethical issue. It is possible that the data in the data set is inaccurate or incomplete, which could lead to incorrect conclusions or decisions being made based on the data. These are the possible ethical issues that have been noted in the investigation.
 
 **Methodology**
 
@@ -61,7 +61,7 @@ Research question: To what extent can the ratio of male to female athletic schol
 
 -   Division
 
-We will answer our research question by first creating subsets of our data by the factors listed above, and removing any outliers using the interquartile range rule. Then we create regression models comparing athletic scholarships to recruitment funds, and then calculate the AIC for each model to determine the effectiveness of each predictor. We chose to use regression models because our research question looks at the extent to which one variable can predict another. We chose to use AIC calculations because we are comparing the effectiveness of prediction based on which variables are included in the model, and AIC is an effective calculation for comparing models that is not simply dependent on the number of predictors.
+We will answer our research question by first creating subsets of our data by the factors listed above, and removing any outliers using the interquartile range rule. Then, we will create regression models comparing athletic scholarships to recruitment funds, and then calculate the AIC and r-squared values for each model to determine the effectiveness of each predictor. We chose to use regression models because our research question looks at the extent to which one variable can predict another. We chose to use AIC calculations because we are comparing the effectiveness of prediction based on which variables are included in the model, and AIC is an effective calculation for comparing models that is not simply dependent on the number of predictors. Finally, we chose to calculate the r-squared values to look at how well the data fits the regression model, in other words, finding the goodness of fit.
 
 ```{r}
 #| label: filter-ncaa
@@ -345,7 +345,7 @@ eada_no_outs |>
 
 ```
 
-Below are the AIC and r-squared values of the linear regression model.
+Below are the AIC and r-squared values of the linear regression model without outliers.
 
 ```{r}
 #| label: aic-no-outs
@@ -356,7 +356,7 @@ linear_reg() |>
   pull(AIC, r.squared)
 ```
 
-Given the low r-squared value of our linear regression model fitting the two ratios, we decided to test a hypothesis that there is a higher average male to female ratio of recruiting expenditures than male to female ratio of student aid.
+Given the low r-squared value of our linear regression model fitting the two ratios, we decided to test our general hypothesis that there is a similar average male to female ratio of recruiting expenditures and average male to female ratio of student aid.
 
 To execute the hypothesis test, we can use a CLT hypothesis test for difference in means as both groups have over 30 observations and sampling is independent. The null and alternative hypotheses are below.
 
@@ -412,7 +412,7 @@ With a t-score of 4.184 at a significance level (\$\\alpha\$) of 0.05, we reject
 
 The probability of observing our statistic of 1.117 or something more extreme, given there is no difference in male to female ratio of student aid from male to female ratio of recruiting expenditures, is approximately 0.
 
-Private vs. public schools have two very different financial structures, so we thought there may be a tangible difference in how the two ratios relate to each other. Below, we fit a linear model and calculated the AIC and r squared for each.
+Private vs. public schools have two very different financial structures, so we thought there may be a tangible difference in how the two ratios relate to each other. Below, we fit a linear model and calculated the AIC and r-squared values for each.
 
 ```{r}
 #| label: viz-priv
@@ -428,7 +428,7 @@ eada_private |>
 
 ```
 
-Below are the AIC and r-squared values of the linear regression model.
+Below are the AIC and r-squared values of the linear regression model for private schools.
 
 ```{r}
 #| label: AIC-priv
@@ -453,7 +453,7 @@ eada_public |>
        subtitle = "Public Schools") + scale_color_viridis_b()
 ```
 
-Below are the AIC and r-squared values of the linear regression model.
+Below are the AIC and r-squared values of the linear regression model for public schools.
 
 ```{r}
 #| label: AIC-public
@@ -464,7 +464,7 @@ linear_reg() |>
   pull(AIC, r.squared)
 ```
 
-For most collegiate athletic programs in the United States, football serves as the primary source of revenue. As a result, we decided to look at how the inclusion or absence of football impacted the fit of the linear model. Below, there's the AIC and r squared calculated for each.
+For most collegiate athletic programs in the United States, football serves as the primary source of revenue. As a result, we decided to look at how the inclusion or absence of football impacted the fit of the linear model. Below, there's the AIC and r-squared calculated for each.
 
 ```{r}
 #| label: viz-football
@@ -479,7 +479,7 @@ eada_football |>
        subtitle = "Schools with football")+ scale_color_viridis_b()
 ```
 
-Below are the AIC and r-squared values of the linear regression model.
+Below are the AIC and r-squared values of the linear regression model for football schools.
 
 ```{r}
 #| label: AIC-football
@@ -504,7 +504,7 @@ eada_nofootball |>
        subtitle = "Schools with no football") + scale_color_viridis_b()
 ```
 
-Below are the AIC and r-squared values of the linear regression model.
+Below are the AIC and r-squared values of the linear regression model for schools without football.
 
 ```{r}
 #| label: AIC-no-football
@@ -515,7 +515,7 @@ linear_reg() |>
   pull(AIC, r.squared)
 ```
 
-Finally, as the level of competition increases, so does the level of finances. With that being said, we split the data into three categories by division and looked at how it impacted a linear model fit. The AIC and r squared values are calculated below for each.
+Finally, as the level of competition increases, so does the level of finances. With that being said, we split the data into three categories by division and looked at how it impacted a linear model fit. The AIC and r-squared values are calculated below for each.
 
 ```{r}
 #| label: viz-d1
@@ -530,7 +530,7 @@ eada_divisionI |>
        subtitle = "Division I schools") + scale_color_viridis_b()
 ```
 
-Below are the AIC and r-squared values of the linear regression model.
+Below are the AIC and r-squared values of the linear regression model for division one schools.
 
 ```{r}
 #| label: AIC-d1
@@ -554,7 +554,7 @@ eada_divisionII |>
        subtitle = "Division II schools") + scale_color_viridis_b()
 ```
 
-Below are the AIC and r-squared values of the linear regression model.
+Below are the AIC and r-squared values of the linear regression model for division two schools.
 
 ```{r}
 #| label: AIC-d2
@@ -579,7 +579,7 @@ eada_divisionIII |>
 
 ```
 
-Below are the AIC and r-squared values of the linear regression model.
+Below are the AIC and r-squared values of the linear regression model for division three schools.
 
 ```{r}
 #| label: AIC-d3
@@ -590,7 +590,7 @@ linear_reg() |>
   pull(AIC, r.squared)
 ```
 
-To more fully answer our research question, we created a multivariate prediction model to reach conclusions about the factors that influence the male to female ratio of recruitment funds. Below, we wrangled our data set to create three new variables, school_type(private or public), football(football or no football), and division (one, two, or three). Then, we fit our multivariate prediction model.
+To more fully answer our research question, we created a multivariate prediction model to reach conclusions about the factors that influence the male to female ratio of recruitment funds. Below, we wrangled our data set to create three new variables, school_type (private or public), football (football or no football), and division (one, two, or three). Then, we fit our multivariate prediction model, which is shown below.
 
 ```{r}
 #| label: datawrangle-model
@@ -627,7 +627,7 @@ model <- linear_reg() |>
   tidy()
 ```
 
-$\hat{ratio\_mw\_ep} = 3.688 -0.651({school\_type}) - 0.829({division\_three}) - .848({division\_two}) - 1.592({no\_football}) + 0.086({ratio\_mw\_sa})$
+$\hat{ratio\_mw\_ep} = 3.688 -0.651({school\_public}) - 0.829({division\_three}) - .848({division\_two}) - 1.592({no\_football}) + 0.086({ratio\_mw\_sa})$
 
 Our model predicts that private, division one football schools have the highest ratio of male to female recruitment funds. Further, whether a school has football holds the highest weight as an influencing factor. Further, the model displays that there is a slight positive correlation between a higher male to female student aid ratio and a higher male to female recruitment fund ratio.
 
@@ -637,9 +637,9 @@ This prediction model was aimed at testing whether the financial allocation univ
 
 Initially, we ran a hypothesis test for the difference in mean male to female ratios of student aid from recruiting expenditures. As a result of our p-value of \~0, we can reject our null hypothesis that there is no difference in true male to female ratio of recruiting expenditures than male to female ratio of student aid.
 
-We filtered the data through three different variables: whether the school had a football program or not, whether the school was public or private, and whether the school was Division I, II, or III. Notably, many of these groups did not have equal numbers of schools, and division 3 is only 9 schools.
+We filtered the data through three different variables: whether the school had a football program or not, whether the school was public or private, and whether the school was Division I, II, or III. Notably, many of these groups did not have equal numbers of schools, and only nine schools in division 3 were represented in the data.
 
-After filtering the data, we ran an AIC metric on all the subsets of the data to compare the different regression models. There was a more accurate trend observed in the private vs. public data-set, meaning that model offers the best fit. Amongst all the graphs, there is a low positive correlation observed. Then we ran an R squared test. This would tell us the significance in the correlation between the two variables: scholarship funds versus recruitment funds. The R squared test revealed that there is a very insignificant correlation between the two chosen variables.
+After filtering the data, we ran an AIC metric on all the subsets of the data to compare the different regression models. The lowest AIC values across both sides of the variable were seen in private and public split of the data set, meaning that model offers the best fit. Among all the graphs, there is a low positive correlation observed. Then we ran an R squared test. This would tell us the significance in the correlation between the two variables: scholarship funds versus recruitment funds. The R squared test revealed that there is a very insignificant correlation between the two chosen variables. Below are the AIC and r squared values for each model.
 
 |                     |                           |                                            |                               |                              |
 |---------------|---------------|---------------|---------------|---------------|
